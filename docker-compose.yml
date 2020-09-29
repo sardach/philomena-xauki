@@ -26,15 +26,15 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    logging:
-      driver: "none"
+    #logging:
+    #  driver: "none"
 
   elasticsearch:
     image: elasticsearch:7.8.1
     volumes:
       - elastic_data:/var/lib/elasticsearch
-    logging:
-      driver: "none"
+    #logging:
+     # driver: "none"
     environment:
       - discovery.type=single-node
     ulimits:
@@ -44,8 +44,8 @@ services:
 
   redis:
     image: redis:6.0.7
-    logging:
-      driver: "none"
+    #logging:
+     # driver: "none"
 
   web:
     build:
@@ -53,8 +53,8 @@ services:
       dockerfile: ./docker/web/Dockerfile
     volumes:
       - .:/srv/philomena
-    logging:
-      driver: "none"
+    #logging:
+    #  driver: "none"
     depends_on:
       - app
     ports:
