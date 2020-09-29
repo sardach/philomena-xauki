@@ -70,6 +70,7 @@ config :philomena, PhilomenaWeb.Endpoint,
       ~r"lib/philomena_web/{live,views}/.*(ex)$",
       ~r"lib/philomena_web/templates/.*(eex|slim|slime)$",
       ~r{assets/css/.*(js|css|png|jpeg|jpg|gif|svg|sass)$}
+      ~r{lib/philomena_web/templates/.*(eex|slim|slime)$}
     ]
   ]
 

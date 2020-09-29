@@ -5,7 +5,8 @@ header.header
         a.header__link href="#"
           i.fa.fa-bars
       a.header__link href="/"
-        i.fa.fw.favicon-home
+        img class="highlight" src="hires.png"/
+	i.fa.fw.favicon-home
         span.fa__text.hide-limited-desktop.hide-mobile
           ' Derpibooru
       a.header__link.hide-mobile href="/images/new" title="Upload"
