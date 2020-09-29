@@ -46,7 +46,7 @@ defmodule PhilomenaWeb.ImageReverse do
     distance
     |> String.to_float()
     |> max(0.01)
-    |> min(1.0)
+    |> min(10.0)
   end
 
   defp normalize_dist(_dist), do: 0.25

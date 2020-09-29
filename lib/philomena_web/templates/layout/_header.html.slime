@@ -1,9 +1,6 @@
 header.header
   .flex.flex--centered.flex--start-bunched.flex--maybe-wrap
     .flex.flex--centered
-      #js-burger-toggle.hide-desktop
-        a.header__link href="#"
-          i.fa.fa-bars
       a.header__link href="/"
         img.logohome src="/hires.png" /
         span.fa__text.hide-limited-desktop.hide-mobile
@@ -111,6 +108,10 @@ header.header
           | Register
         a.header__link href=Routes.session_path(@conn, :new)
           | Login
+      #js-burger-toggle.hide-desktop
+        a.header__link href="#"
+          i.fa.fa-bars
+
 
 nav.header.header--secondary
   .flex.flex--centered.flex--spaced-out.flex--wrap

@@ -190,3 +190,10 @@ $poll_form_label_background: lighten($border_color, 8);
 $tag_dropdown_hover_background: darken($meta_color, 4%);
 
 @import "~common/base";
+
+body {
+	opacity: 0.88;
+	background-image: linear-gradient(rgba(2, 57, 51, 0.66), rgba(0, 0, 0, 0.66)), url(/bg.gif);
+	margin: unset;
+}
+
