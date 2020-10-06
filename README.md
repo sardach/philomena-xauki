@@ -1,5 +1,22 @@
-# Philomena
-![Philomena](/assets/static/images/phoenix.svg)
+# Philomena (Xauki fork)
+![Philomena](assets/static/hires.png)
+
+Hello, this is the Fork of Philomena running in https://xauki.com
+
+I'm only posting this because my soul demnand me to comply with the AGPL license.
+
+I never before writed or readed any line of elixir code or HTML slim and I don't consider myself a good programmer in general. All commits are considered "hacks" more than proper improvements. Use this project at your own risk.
+
+Notable differences from the original repository:
+- Translation to spanish langauge
+- Dramatic style changes
+- Cool marquee on the activity / index page
+- Very basic "level system"
+- Very basic "related images system"
+- Integration of share on social networks
+- Cut out a bunch of unnecessary features for the goals of xauki.com
+
+Original Philomena source: https://github.com/derpibooru/philomena
 
 ## Getting started
 On systems with `docker` and `docker-compose` installed, the process should be as simple as:
