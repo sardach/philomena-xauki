@@ -1,0 +1,21 @@
+span.block__header__title.hide-mobile {
+    display: unset !important;
+}
+
+.block__header.block__header--light.flex {
+    display: none;
+}
+
+.media-box__content--large {
+    width: 175px;
+    height: 175px;
+}
+
+@media (max-width: 800px) {
+.media-box__content--large {
+    width: 75px;
+    height: 75px;
+}
+
+
+}
