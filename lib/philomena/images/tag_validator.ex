@@ -13,7 +13,7 @@ defmodule Philomena.Images.TagValidator do
     rating_set = ratings(tag_set)
 
     changeset
-    |> validate_number_of_tags(tag_set, 3)
+    |> validate_number_of_tags(tag_set, 2 )
     |> validate_bad_words(tag_set)
     |> validate_has_rating(rating_set)
     |> validate_safe(rating_set)
@@ -38,7 +38,7 @@ defmodule Philomena.Images.TagValidator do
   defp validate_number_of_tags(changeset, tag_set, num) do
     cond do
       MapSet.size(tag_set) < num ->
-        add_error(changeset, :tag_input, "must contain at least #{num} tags")
+        add_error(changeset, :tag_input, "Debes escribir al menos #{num} etiquetas")
 
       true ->
         changeset
@@ -68,14 +68,14 @@ defmodule Philomena.Images.TagValidator do
         changeset
 
       true ->
-        add_error(changeset, :tag_input, "must contain at least one rating tag")
+        add_error(changeset, :tag_input, "debe contener al menos una de estas etiquetas: Sticker, Graffiti, Otro")
     end
   end
 
   defp validate_safe(changeset, %{safe: s, sexual: x, horror: h, gross: g}) do
     cond do
       MapSet.size(s) > 0 and (MapSet.size(x) > 0 or MapSet.size(h) > 0 or MapSet.size(g) > 0) ->
-        add_error(changeset, :tag_input, "may not contain any other rating if safe")
+        add_error(changeset, :tag_input, "error desconocido, cambia las etiquetas o contacta a la administración")
 
       true ->
         changeset
@@ -108,7 +108,7 @@ defmodule Philomena.Images.TagValidator do
     |> MapSet.new()
   end
 
-  defp safe_rating, do: MapSet.new(["safe"])
+  defp safe_rating, do: MapSet.new(["safe", "sticker", "graffiti", "grafiti", "otro"])
   defp sexual_ratings, do: MapSet.new(["suggestive", "questionable", "explicit"])
   defp horror_ratings, do: MapSet.new(["semi-grimdark", "grimdark"])
   defp gross_rating, do: MapSet.new(["grotesque"])
