@@ -8,7 +8,7 @@ html lang="en"
     title Two Factor Authentication - Derpibooru
     link rel="stylesheet" href=stylesheet_path(@conn, nil)
     link rel="icon" href="/favicon.ico" type="image/x-icon"
-    link rel="icon" href="/favicon.svg" type="image/svg+xml"
+    link rel="icon" href="/favicon.png" type="image/png"
 
   body.twofactor
     .twofactor__container

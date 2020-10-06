@@ -7,14 +7,17 @@ html lang="en"
     title
       = if assigns[:title] do
         => assigns[:title]
-        ' - Derpibooru
+        ' - Xauki
       - else
-        ' Derpibooru
+        ' Xauki
     link rel="stylesheet" href=stylesheet_path(@conn, @current_user)
+    link href="https://fonts.googleapis.com/css?family=Muli:400,600" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/css?family=Schoolbell&display=swap" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" /
     link rel="icon" href="/favicon.ico" type="image/x-icon"
-    link rel="icon" href="/favicon.svg" type="image/svg+xml"
+    link rel="icon" href="/favicon.png" type="image/png"
     meta name="generator" content="philomena"
-    meta name="theme-color" content="#618fc3"
+    meta name="theme-color" content="#131313"
     meta name="format-detection" content="telephone=no"
     = csrf_meta_tag()
     script type="text/javascript" src=Routes.static_path(@conn, "/js/app.js") async="async"
