@@ -2,14 +2,9 @@ header.header
   .flex.flex--centered.flex--start-bunched.flex--maybe-wrap
     .flex.flex--centered
       a.header__link href="/"
-        img.logohome src="/hires.png" /
-        span.fa__text.hide-limited-desktop.hide-mobile
-          ' 
-      a.header__link.hide-mobile href="/images/new" title="Upload"
-        i.fa.fa-upload
-
+        span.logohome xauki
     = form_for @conn, Routes.search_path(@conn, :index), [method: "get", class: "header__search flex flex--no-wrap flex--centered", enforce_utf8: false], fn f ->
-      input.input.header__input.header__input--search#q name="q" title="For terms all required, separate with ',' or 'AND'; also supports 'OR' for optional terms and '-' or 'NOT' for negation. Search with a blank query for more options or click the ? for syntax help." value=@conn.params["q"] placeholder="Search" autocapitalize="none"
+      input.input.header__input.header__input--search#q name="q" title="uwu" value=@conn.params["q"] placeholder="Buscar" autocapitalize="none"
 
       = if present?(@conn.params["sf"]) do
         input type="hidden" name="sf" value=@conn.params["sf"]
