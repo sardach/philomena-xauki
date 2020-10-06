@@ -1,3 +1,6 @@
+script src="https://xauki.com/jquery.js"
+script src="https://xauki.com/niveles.js"
+
 .profile-top
   .profile-top__avatar
     - avatar = render PhilomenaWeb.UserAttributionView, "_user_avatar.html", object: %{user: @user}, class: "avatar--125px"
@@ -9,7 +12,12 @@
     div
       h1.profile-top__name-header
         = @user.name
-        | 's profile
+      #barraprog
+        #prog
+        span#progtxt
+         span#nivel Nivel
+         span#puntos 0/0
+
       = render PhilomenaWeb.UserAttributionView, "_user_title.html", object: %{user: @user}, large: true
       br
 
