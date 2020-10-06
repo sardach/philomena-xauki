@@ -9,8 +9,10 @@ services:
       context: .
       dockerfile: ./docker/app/Dockerfile
     environment:
-      - MIX_ENV=dev
-      - PGPASSWORD=postgres
+#       - MIX_ENV=test
+       - MIX_ENV=dev
+#      - MIX_ENV=prod
+       - PGPASSWORD=postgres
     working_dir: /srv/philomena
     tty: true
     volumes:
@@ -27,14 +29,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     #logging:
-    #  driver: "none"
+   #   driver: "json"
 
   elasticsearch:
     image: elasticsearch:7.8.1
     volumes:
       - elastic_data:/var/lib/elasticsearch
     #logging:
-     # driver: "none"
+      #driver: "json"
     environment:
       - discovery.type=single-node
     ulimits:
@@ -45,7 +47,7 @@ services:
   redis:
     image: redis:6.0.7
     #logging:
-     # driver: "none"
+   #  driver: "json"
 
   web:
     build:
@@ -53,8 +55,8 @@ services:
       dockerfile: ./docker/web/Dockerfile
     volumes:
       - .:/srv/philomena
-    #logging:
-    #  driver: "none"
+   # logging:
+  #    driver: "json"
     depends_on:
       - app
     ports:
