@@ -1,10 +1,9 @@
 .header {
   background: $header_color;
 }
-
 img.logohome {
-	width: 40px;
-	vertical-align: middle;
+    width: 48px;
+    margin-bottom: 3px;
 }
 
 .header__force-right {
@@ -77,7 +76,6 @@ a.header__link:hover, .header__dropdown:hover > a {
   border: none;
   height: $header_field_height;
 
-  background: $header_field_color;
   color: $text_light_color;
   -webkit-text-fill-color: $text_light_color;
 

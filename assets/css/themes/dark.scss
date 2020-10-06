@@ -21,7 +21,7 @@ $destroyed_content_color: #382c2f;
 
 $meta_color: #191f2a;
 
-$header_color: #284371;
+$header_color: #0e0e0e;
 $header_field_color: #1c3252;
 $header_secondary_color: #1d2b44;
 $header_admin_color: #3b1d1d;
@@ -191,9 +191,4 @@ $tag_dropdown_hover_background: darken($meta_color, 4%);
 
 @import "~common/base";
 
-body {
-	opacity: 0.88;
-	background-image: linear-gradient(rgba(2, 57, 51, 0.66), rgba(0, 0, 0, 0.66)), url(/bg.gif);
-	margin: unset;
-}
 

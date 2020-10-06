@@ -336,7 +336,7 @@ blockquote {
 }
 
 i.favicon-home {
-  background-image: url("/favicon.svg");
+  background-image: url("/favicon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -408,4 +408,8 @@ span.stat {
 
 .hidden {
   display: none !important;
+}
+////sardach
+#pubimg {
+    font-family: Muli;
 }

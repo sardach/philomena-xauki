@@ -6,24 +6,34 @@
 // ///// SECTION 1 - MAIN COLORS /////
 // ///////////////////////////////////
 
-$background_color: #ffffff;
+//sardach
+.logohome {
+	vertical-align: middle;
+	font-family: schoolbell;
+	font-weight: bold;
+	font-size: 44px;
+}
+
+
+//$background_color: #fff;
+$background_color: #1313137d;
 $page_background_color: #f8fafc;
-$foreground_color: #333333;
+$foreground_color: #ffffff;
 
 $base_color: #62a7d9;
 
-$primary_color: #c1e4f9;
-$success_color: #bde9a3; /* tag added, currently banned, view post history--added */
-$danger_color: #ebc0bb; /* tag removed, currently not banned, view post history--deleted */
-$warning_color: #eee9bc; /* NSFW streams, image spoilered, things like that */
+$primary_color: #1b1b1b;
+$success_color: #ff555566; /* tag added, currently banned, view post history--added */
+$danger_color: #ff555566; /* tag removed, currently not banned, view post history--deleted */
+$warning_color: #050505; /* NSFW streams, image spoilered, things like that */
 
-$link_color: #419cd9;
-$link_hover_color: #9273d0;
+$link_color: #76A087;
+$link_hover_color: #544F6E;
 
-$fave_color: #c4b246;
-$vote_up_color: #67af2b;
-$vote_down_color: #cf0001;
-$hide_color: #cf0001;
+$fave_color: #CCA44Ba8;
+$vote_up_color: #7BB677a8;
+$vote_down_color: #943D43a8;
+$hide_color: #827e7ea8;
 
 $destroyed_content_color: #ffdcdc;
 
@@ -50,40 +60,40 @@ $image_overlay_background_color: #000000;
 // ///// SECTION 2 - DERIVED COLORS /////
 // //////////////////////////////////////
 
-$text_light_color: $background_color;
+$text_light_color: #fff;
 
 $meta_color: mix($foreground_color, $background_color, 5%);
 $meta_border_color: mix($foreground_color, $meta_color, 30%);
 
-$header_color: darken($base_color, 9%);
-$header_hover_color: darken($base_color, 16%);
+$header_color: #050505;
+$header_hover_color: #6A2846;
 $header_field_color: $base_color;
 $header_field_hover_color: darken($base_color, 7%);
-$header_secondary_color: desaturate(lighten($base_color, 30%), 25%);
+$header_secondary_color: #213029;
 $header_secondary_hover_color: darken($header_secondary_color, 7%);
 
-$header_admin_color: mix($vote_down_color, $background_color, 16%);
-$header_admin_hover_color: mix($vote_down_color, $background_color, 30%);
+$header_admin_color: "";
+$header_admin_hover_color: "";
 
-$block_header_color: lighten($base_color, 28%);
-$block_header_hover_color: desaturate(lighten($base_color, 20%), 5%);
-$block_header_link_text_color: saturate(darken($header_color, 5%), 6%);
-$block_header_link_text_hover_color: darken($header_color, 15%);
+$block_header_color: #213029;
+$block_header_hover_color: desaturate(lighten($block_header_color, 20%), 5%);
+$block_header_link_text_color: #fff;
+$block_header_link_text_hover_color: #6A2846;
 
-$block_header_light_color: desaturate(lighten($base_color, 31%), 16%);
+$block_header_light_color: desaturate(lighten($block_header_color, 31%), 16%);
 $block_header_light_hover_color: lighten($header_secondary_hover_color, 2%);
 $block_header_light_link_text_color: darken($block_header_light_color, 42%);
 $block_header_light_link_text_hover_color: darken($block_header_light_color, 52%);
 
-$border_color: darken($block_header_light_color, 3%);
+$border_color: #213029;
 
-$media_box_color: desaturate($block_header_light_color, 10%);
+$media_box_color: #213029;
 $media_box_hover_color: saturate(darken($media_box_color, 6%), 6%);
 $media_box_header_link_text_color: $link_color;
 $media_box_header_link_text_hover_color: darken($media_box_header_link_text_color, 10%);
 
 $primary_light_color: lighten($primary_color, 5%);
-$success_light_color: lighten($success_color, 7%);
+$success_light_color: #213029;
 $danger_light_color: lighten($danger_color, 4%);
 $warning_light_color: lighten($warning_color, 6%);
 
@@ -94,7 +104,7 @@ $image_show_link_color: $link_color;
 $image_show_link_hover_color: $link_hover_color;
 
 /* In default theme, except odd color to be darker! */
-$background_odd_color: lighten($base_color, 35%); //also used as 'alt background color' in various places
+$background_odd_color: #171717; //also used as 'alt background color' in various places
 $background_even_color: $background_color;
 /* Depending on the theme, you may want to swap even and odd colors */
 $success_odd_color: saturate(darken($success_light_color, 3%), 8%);
@@ -104,7 +114,7 @@ $warning_even_color: lighten($warning_color, 5%);
 $danger_odd_color: saturate(darken($danger_light_color, 1%), 12%);
 $danger_even_color: desaturate(lighten($danger_color, 7%), 10%);
 
-$foreground_half_color: mix($foreground_color, $background_color); //used for weird h's (on image pages like Metadata Editing and Information) and also footer text color
+$foreground_half_color: #ffffff; //used for weird h's (on image pages like Metadata Editing and Information) and also footer text color
 
 $sparkline_color: lighten($base_color, 5%);
 
@@ -114,7 +124,7 @@ $admin_links_color: mix($vote_down_color, $background_color, 17%);
 $admin_links_hover_color: mix($vote_down_color, $background_color, 48%);
 
 $input_text_color: $foreground_color;
-$input_color: $meta_color;
+$input_color: #3b3b3b;
 $input_border: $meta_border_color;
 $input_color_active: desaturate(lighten($base_color, 30%), 16%);
 $input_border_active: lighten($base_color, 10%);
@@ -149,13 +159,13 @@ $site_notice_color: darken($base_color, 32%);
 $site_notice_link_color: $block_header_light_color;
 $site_notice_link_hover_color: $block_header_hover_color;
 
-$button_text_color: $foreground_color;
-$button_background_color: rgba($meta_color, 0.2);
-$button_hover_background_color: $input_color_active;
+$button_text_color: #fff;
+$button_background_color: #17141a;
+$button_hover_background_color: #17141a;
 $button_hover_border_color: $input_border_active;
-$button_border_color: $meta_border_color;
+$button_border_color: #17141a;
 
-$button_primary_background_color: $primary_light_color;
+$button_primary_background_color: #17141a;
 $button_success_background_color: $success_light_color;
 $button_warning_background_color: $warning_light_color;
 $button_danger_background_color: $danger_light_color;
@@ -180,3 +190,507 @@ $poll_form_label_background: lighten($border_color, 8);
 $tag_dropdown_hover_background: darken($meta_color, 4%);
 
 @import "~common/base";
+
+i.fa.fa-cloud-upload-alt {
+	animation: glitch2 60s steps(200) infinite;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(27px, 9999px, 1px, 0);
+  }
+  5% {
+    clip: rect(31px, 9999px, 40px, 0);
+  }
+  10% {
+    clip: rect(35px, 9999px, 94px, 0);
+  }
+  15% {
+    clip: rect(91px, 9999px, 78px, 0);
+  }
+  20% {
+    clip: rect(39px, 9999px, 66px, 0);
+  }
+  25% {
+    clip: rect(72px, 9999px, 28px, 0);
+  }
+  30% {
+    clip: rect(15px, 9999px, 85px, 0);
+  }
+  35% {
+    clip: rect(43px, 9999px, 69px, 0);
+  }
+  40% {
+    clip: rect(89px, 9999px, 64px, 0);
+  }
+  45% {
+    clip: rect(74px, 9999px, 56px, 0);
+  }
+  50% {
+    clip: rect(95px, 9999px, 64px, 0);
+  }
+  55% {
+    clip: rect(23px, 9999px, 26px, 0);
+  }
+  60% {
+    clip: rect(64px, 9999px, 21px, 0);
+  }
+  65% {
+    clip: rect(75px, 9999px, 37px, 0);
+  }
+  70% {
+    clip: rect(54px, 9999px, 16px, 0);
+  }
+  75% {
+    clip: rect(83px, 9999px, 11px, 0);
+  }
+  80% {
+    clip: rect(89px, 9999px, 61px, 0);
+  }
+  85% {
+    clip: rect(1px, 9999px, 70px, 0);
+  }
+  90% {
+    clip: rect(93px, 9999px, 51px, 0);
+  }
+  95% {
+    clip: rect(65px, 9999px, 94px, 0);
+  }
+  100% {
+    clip: rect(6px, 9999px, 15px, 0);
+  }
+}
+
+@keyframes glitch2 {
+  0% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  1% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  2% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  3% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  4% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  5% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  6% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  7% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  8% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  9% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  10% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  11% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  12% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  13% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  14% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  15% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  16% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  17% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  18% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  19% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  20% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  21% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  22% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  23% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  24% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  25% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  26% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  27% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  28% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  29% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  30% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  31% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  32% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  33% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  34% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  35% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  36% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  37% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  38% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  39% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  40% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  41% {
+    text-shadow: 50px 0 0 blue, -50px 0 0 lime;
+  }
+  42% {
+    text-shadow: 0 0 0 blue, 0 0 0 lime;
+  }
+  43% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  44% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  45% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  46% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  47% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  48% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  49% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  50% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  51% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  52% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  53% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  54% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  55% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  56% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  57% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  58% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  59% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  60% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  61% {
+    text-shadow: 30px 0 0 red, -30px 0 0 lime;
+  }
+  62% {
+    text-shadow: 0 0 0 red, 0 0 0 lime;
+  }
+  63% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+  }
+  64% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+  }
+  65% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+  }
+  66% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+  }
+  67% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  68% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  69% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  70% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  71% {
+    text-shadow: 70px 0 0 red, -70px 0 0 blue;
+  }
+  72% {
+    text-shadow: 0 0 0 red, 0 0 0 blue;
+  }
+  73% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  74% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  75% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  76% {
+    text-shadow: 1px 0 0 red, -1px 0 0 blue;
+  }
+  77% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  78% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  79% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  80% {
+    text-shadow: -1px 0 0 red, 1px 0 0 blue;
+  }
+  81% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  82% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  83% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  84% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  85% {
+    text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+  }
+  86% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  87% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  88% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  89% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  90% {
+    text-shadow: -1px 0 0 red, 1px 0 0 lime;
+  }
+  91% {
+    text-shadow: 60px 0 0 lime, -60px 0 0 blue;
+  }
+  92% {
+    text-shadow: 0 0 0 lime, 0 0 0 blue;
+  }
+  92% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  93% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  94% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  95% {
+    text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+  }
+  96% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  97% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  98% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  99% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+  100% {
+    text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+  }
+}
+
+
+body {
+    font-family: Ubuntu;
+    opacity: 0.95;
+
+}
+#pubimg {
+	font-family: Ubuntu;
+}
+
+@media (max-width: 400px) {
+	a.header__link {
+		font-size: 12px;
+	}
+}
+@media (max-width: 320px) {
+	.logohome {
+                font-size: 34px;
+}
+
+}
+
+.header--secondary a {
+    color: #fff;
+}
+.header__search__button {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 28px;
+    background: #17141A;
+    color: #ffffff;
+}
+.input:focus {
+    outline: none;
+    border: 1px solid #fff;
+    background: #010101;
+}
+
+
+///estilos para pc
+@media (min-width: 801px) {
+form.header__search.flex.flex--no-wrap.flex--centered {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: 14px;
+}
+
+.header__input--search {
+    width: 18vw;
+    max-width: 300px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+.header__search__button {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+
+
+}
+.logohome {
+    color: #fff;               
+}
+    @font-face {
+        font-family: pixel;
+        src: url(https://xauki.com/lcd.ttf);
+    }
+#barraprog {
+    max-width: 100px;
+    background-color: #68686878;
+    font-family: pixel;
+
+}
+
+#prog {
+    background-color: #b00505ed;
+    width: 10%;
+    padding: 3px;
+    padding-left: 0px;
+    height: 3px;
+
+}
+
+#progtxt {
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 10.7px;
+
+}
+
+#puntos {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    float: right;
+    white-space: nowrap;
+
+}
+
+#nivel {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    float: left;
+    white-space: nowrap;
+
+    font-weight: bold;
+}
+
+table#pie tbody tr th a i.fab {
+    font-size: 23px;
+    margin-bottom: 5px;
+    padding-right: 6px;
+}
+#footer #serving_info {
+    font-size: 8.5px;
+}

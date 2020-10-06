@@ -63,7 +63,8 @@ nav {
   height: 100%;
   margin: auto;
   width: 100%;
-  background: $page_background_color;
+  background-image: linear-gradient(rgba(2, 57, 51, 0.66), rgba(0, 0, 0, 0.66)), url(https://xauki.com/bg.gif);
+
 }
 
 #content {

@@ -3,17 +3,17 @@
  */
 
 const strings = {
-  seconds: 'less than a minute',
-  minute: 'about a minute',
-  minutes: '%d minutes',
-  hour: 'about an hour',
-  hours: 'about %d hours',
-  day: 'a day',
-  days: '%d days',
-  month: 'about a month',
-  months: '%d months',
-  year: 'about a year',
-  years: '%d years',
+  seconds: 'menos de un minuto',
+  minute: 'aproximadamente un minuto',
+  minutes: 'hace %d minutos ',
+  hour: 'hace una hora',
+  hours: 'hace %d horas',
+  day: 'hace un día',
+  days: 'hace %d días',
+  month: 'hace un mes',
+  months: 'hace %d meses',
+  year: 'hace un año',
+  years: 'hace %d años',
 };
 
 function distance(time) {
@@ -51,7 +51,7 @@ function setTimeAgo(el) {
   if (!el.getAttribute('title')) {
     el.setAttribute('title', el.textContent);
   }
-  el.textContent = words + (distMillis < 0 ? ' from now' : ' ago');
+  el.textContent = words + (distMillis < 0 ? ' from now' : ' ');
 }
 
 function timeAgo(args) {
