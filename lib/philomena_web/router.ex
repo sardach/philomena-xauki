@@ -520,4 +520,9 @@ defmodule PhilomenaWeb.Router do
   # scope "/api", PhilomenaWeb do
   #   pipe_through :api
   # end
+  if Mix.env == :dev do
+    # If using Phoenix
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
+
+  end
 end
