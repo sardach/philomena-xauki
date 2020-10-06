@@ -2,6 +2,7 @@ User-agent: *
 Crawl-delay: 2
 
 Allow: /images/*
+Allow: /img/*
 
 Disallow: /images
 Disallow: /tags
