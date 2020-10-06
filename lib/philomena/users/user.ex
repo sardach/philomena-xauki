@@ -169,7 +169,7 @@ defmodule Philomena.Users.User do
   defp validate_password(changeset) do
     changeset
     |> validate_required([:password])
-    |> validate_length(:password, min: 12, max: 80)
+    |> validate_length(:password, min: 6, max: 80)
     |> prepare_changes(&hash_password/1)
   end
 
