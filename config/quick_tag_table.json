@@ -1,6 +1,6 @@
 {
   "tabs": [
-    "Main",
+    "Etiquetas-Sugeridas",
     "Species",
     "Shorthands A",
     "B",
@@ -22,7 +22,7 @@
     "1"
   ],
   "tab_modes": {
-    "Main": "default",
+    "Etiquetas-Sugeridas": "default",
     "Species": "default",
     "Shorthands A": "shorthand",
     "B": "shorthand",
@@ -43,54 +43,20 @@
     "2": "season",
     "1": "season"
   },
-  "Main": {
-    "Ratings": [
-      "safe",
-      "suggestive",
-      "questionable",
-      "explicit",
-      "semi-grimdark",
-      "grimdark",
-      "grotesque"
+  "Etiquetas-Sugeridas": {
+    "Obligatorios": [
+      "Sticker",
+      "Graffiti",
+      "Otro"
     ],
-    "Episode Spoilers": [
-      "spoiler:s09e20",
-      "spoiler:s09e21",
-      "spoiler:s09e22",
-      "spoiler:s09e23",
-      "spoiler:s09e24",
-      "spoiler:s09e25",
-      "spoiler:s09e26"
-    ],
-    "General Spoilers": [
-      "spoiler:eqg specials",
-      "spoiler:comic",
-      "spoiler:eqg series (season 2)",
-      "spoiler:s09",
-      "spoiler:rainbow roadtrip",
-      "spoilers for another series"
-    ],
-    "Species": [
-      "anthro",
-      "equestria girls",
-      "human",
-      "humanized",
-      "pony",
-      "earth pony",
-      "pegasus",
-      "unicorn",
-      "alicorn"
-    ],
-    "Often Forgotten": [
-      "solo",
-      "screencap",
-      "image macro",
-      "monochrome",
-      "oc",
-      "photo",
-      "Tag original characters oc:name"
+    "Lugares": [
+      "CDMX",
+      "Edomex",
+      "Queretaro",
+      "Monterrey",
+      "Jalisco"
     ]
-  },
+	},
   "Species": {
     "Major": [
       "bat pony",
