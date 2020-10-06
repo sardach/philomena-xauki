@@ -39,7 +39,3 @@ elixir:
     span.block__header__title
       = info
     .flex__right
-      a href="/settings/edit" title="Display Settings"
-        i.fa.fa-cog
-        span.hide-mobile.hide-limited-desktop<>
-          ' Display Settings

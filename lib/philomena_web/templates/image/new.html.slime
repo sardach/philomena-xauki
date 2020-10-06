@@ -1,24 +1,22 @@
 = form_for @changeset, Routes.image_path(@conn, :create), [multipart: true], fn f ->
+  center
+  h2 Subir nueva foto a Xauki
   .dnp-warning
     h4
-      ' Read the
-      a> href="/pages/rules" site rules
-      ' and check our
-      a> href="/dnp" do-not-post list
+      ' Se espera que uses el sentido común al publicar.
     p
-      ' Don't post content the artist doesn't want here (or shared in general),
-      strong including commercial content.
-
-  p
-    strong
-      ' Please check it isn't already here with
-      a href="/search/reverse" reverse search.
-
+      strong
+        ' Reglas básicas de Xauki: 
+      br
+      ' Solo se permite subir fotos de stickers, grafitis o arte callejero. Otra clase de contenido será eliminado.  
+      br 
+      ' Esta prohibido publicar cualquier tipo de material ilegal o perturbardor; usar bots, macros o sistemas automatizados que pudieran afectar el sitio; y la difusión de información personal sin consentimiento. 
+  
   / todo: extract this
-  h4 Select an image
+  h4 Selecciona una imagen
   .image-other
     #js-image-upload-previews
-    p Upload a file from your computer, or provide a link to the page containing the image and click Fetch.
+    p De preferencia recorta y centra tu foto en el sticker o grafiti, a menos que consideres que la imagen luce mejor con el panorama completo. 
     .field
       = file_input f, :image, class: "input js-scraper"
       = error_tag f, :image
@@ -30,58 +28,48 @@
       = error_tag f, :image_duration
       = error_tag f, :image_orig_sha512_hash
 
-    .field.field--inline
-      = url_input f, :scraper_url, class: "input input--wide js-scraper", placeholder: "Link a deviantART page, a Tumblr post, or the image directly"
-      button.button.button--separate-left#js-scraper-preview(type="button" title="Fetch the image at the specified URL" data-disable-with="Fetch" disabled)
-        ' Fetch
-
-    .field-error-js.hidden.js-scraper
-
-  h4 About this image
+  h4 Acerca de la obra
   .field
-    = label f, :source_url, "The page you found this image on"
-    = url_input f, :source_url, class: "input input--wide js-image-input", placeholder: "Source URL"
-  
-  .field
-    label for="image[tag_input]"
-      ' Describe with
-      strong> 3+
-      ' tags, including ratings and applicable artist tags
 
-    = render PhilomenaWeb.TagView, "_tag_editor.html", f: f, name: :tag_input, type: :upload
-    = error_tag f, :tag_input
+  .block--fixed
+    .field
+      label for="image[tag_input]"
+        ' Describe la foto con al menos 
+        strong> 2
+        ' etiquetas.
+      br 
+      | Es obligatorio incluir al menos una de estas etiquetas: Sticker, Graffiti u Otro.
+      br
+      | Si conoces o eres el autor de la obra, añade la etiqueta con este formato: author:Nombre
+      br
+      | Se recomienda añadir la ciudad o zona donde tomaste la foto, p. ej.: CDMX, Querétaro, Colonia Narvarte...
 
-    button.button.button--state-success.button--separate-left.button--bold id="tagsinput-save" type="button" title="This button saves the tags listed above to your browser, allowing you to retrieve them again by clicking the Load button" Save
-    button.button.button--state-warning.button--separate-left.button--bold id="tagsinput-load" type="button" title="This button loads any saved tags from your browser" Load
-    button.button.button--state-danger.button--separate-left.button--bold id="tagsinput-clear" type="button" title="This button will clear the list of tags above" Clear
+  = render PhilomenaWeb.TagView, "_tag_editor.html", f: f, name: :tag_input, type: :upload
+  = error_tag f, :tag_input
 
-    p You can mouse over tags below to view a description, and click to add. Short tag names can be used and will expand to full.
-
-    .block.js-tagtable data-target="[name=&quot;image[tag_input]&quot;]"
-      = PhilomenaWeb.TagView.quick_tags(@conn)
 
   br
 
   .field
     .block
       .block__header.block__header--js-tabbed
-        = link "Description", to: "#", class: "selected", data: [click_tab: "write"]
-        = link "Preview", to: "#", data: [click_tab: "preview"]
+        = link "Descripción", to: "#", class: "selected", data: [click_tab: "write"]
+        = link "Vista Previa", to: "#", data: [click_tab: "preview"]
 
       .block__tab.selected data-tab="write"
         = render PhilomenaWeb.TextileView, "_help.html", conn: @conn
         = render PhilomenaWeb.TextileView, "_toolbar.html", conn: @conn
 
-        = textarea f, :description, class: "input input--wide input--text js-preview-description js-image-input js-toolbar-input", placeholder: "Describe this image in plain words - this should generally be info about the image that doesn't belong in the tags or source."
+        = textarea f, :description, class: "input input--wide input--text js-preview-description js-image-input js-toolbar-input", placeholder: "(Opcional) Aquí puedes añadir información adicional de la obra o algún comentario."
       .block__tab.hidden data-tab="preview"
-        | Loading preview...
+        | Cargando vista previa...
 
   = if @conn.assigns.current_user do
     .field
-      = label f, :anonymous, "Post anonymously"
+      = label f, :anonymous, "Publicar anonimamente"
       = checkbox f, :anonymous, class: "checkbox", value: anonymous_by_default?(@conn)
 
   = render PhilomenaWeb.CaptchaView, "_captcha.html", name: "image", conn: @conn
 
   .actions
-    = submit "Upload", class: "button", autocomplete: "off", data: [disable_with: "Please wait..."]
+    = submit "SUBIR Y PUBLICAR ;)", class: "button", autocomplete: "off", data: [disable_with: "Please wait..."]

@@ -1,7 +1,7 @@
 a href=Routes.image_report_path(@conn, :new, @image)
   button.button.button--link
     i.fa.fa-exclamation-triangle>
-    ' General reporting
+    ' Reportar
 
 .report-duplicate
   - checked = Enum.any?(@dupe_reports, & &1.state == "open")

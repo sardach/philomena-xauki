@@ -1,22 +1,25 @@
 footer#footer
   #footer_content
-    - footer_data = footer_data()
+    table#pie
+      tbody
+       tr
+          th
+            a href="https://discord.gg/Ty2NdN2" target="_blank" 
+              i.fab.fa-discord
+          th
+            a href=(" https://twitter.com/xauki_ oficial ") target="_blank" 
+              i.fab.fa-twitter
+          th
+            a href=(" https://instagram.com/xauki_ oficial ") target="_blank" 
+              i.fab.fa-instagram
+          th
+            a href=(" https://xauki.com/acercade ") target="_blank" 
+              |  acerca de
 
-    = for column <- footer_data["cols"] do
-      .footercol
-        h5 = column
-        
-        = for row <- footer_data[column] do
-          = if row["bold"] do
-            strong
-              a href=row["url"] = row["title"]
-          - else
-            a href=row["url"] = row["title"]
-          br
 
   #serving_info
-    ' Powered by
-    a> href="https://github.com/philomena-dev/philomena" philomena
+    ' Funcionando gracias a
+    a> href="https://github.com/philomena-dev/philomena" philomena (fork de Xauki)
     | (
     = render_time(@conn)
     | ms)
