@@ -66,3 +66,4 @@ link href="https://xauki.com/scroller.css" rel="stylesheet" /
         .block__content.js-resizable-media-container
           = for image <- @watched do
             = render PhilomenaWeb.ImageView, "_image_box.html", image: image, link: Routes.image_path(@conn, :show, image, q: "my:watched"), size: :thumb_small, conn: @conn
+
