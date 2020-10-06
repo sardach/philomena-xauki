@@ -9,6 +9,30 @@ defmodule PhilomenaWeb.LayoutView do
     conn.assigns[:layout_class] || "layout--narrow"
   end
 
+  def pretty_url(image, short, download) do
+    %{year: year, month: month, day: day} = image.created_at
+    root = image_url_root()
+
+    view = if download, do: "download", else: "view"
+    filename = if short, do: image.id, else: image.file_name_cache
+
+    format =
+      image.image_format
+      |> to_string()
+      |> String.downcase()
+      |> thumb_format(nil, download)
+
+    "#{root}/#{view}/#{year}/#{month}/#{day}/#{filename}.#{format}"
+  end
+
+  def image_url_root do
+    Application.get_env(:philomena, :image_url_root)
+  end
+
+  defp thumb_format("svg", _name, false), do: "png"
+  defp thumb_format(_, :rendered, _download), do: "png"
+  defp thumb_format(format, _name, _download), do: format
+
   def container_class(%{use_centered_layout: false}), do: nil
   def container_class(_user), do: "layout--center-aligned"
 

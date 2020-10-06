@@ -2,38 +2,38 @@ defmodule PhilomenaWeb.AppView do
   use Phoenix.HTML
 
   @time_strings %{
-    seconds: "less than a minute",
-    minute: "about a minute",
-    minutes: "%d minutes",
-    hour: "about an hour",
-    hours: "about %d hours",
-    day: "a day",
-    days: "%d days",
-    month: "about a month",
-    months: "%d months",
-    year: "about a year",
-    years: "%d years"
+    seconds: "hace menos de un minuto",
+    minute: "hace un minuto",
+    minutes: "hace %d minutos",
+    hour: "hace una hora",
+    hours: "hace %d horas",
+    day: "hace un día",
+    days: "hace %d dias",
+    month: "hace un mes",
+    months: "hace %d meses",
+    year: "hace un año",
+    years: "hace %d años"
   }
 
   @months %{
-    1 => "January",
-    2 => "February",
-    3 => "March",
-    4 => "April",
-    5 => "May",
-    6 => "June",
-    7 => "July",
-    8 => "August",
-    9 => "September",
-    10 => "October",
-    11 => "November",
-    12 => "December"
+    1 => "Enero",
+    2 => "Febrero",
+    3 => "Marzo",
+    4 => "Abril",
+    5 => "Mayo",
+    6 => "Junio",
+    7 => "Julio",
+    8 => "Agosto",
+    9 => "Septiembre",
+    10 => "Octubre",
+    11 => "Noviembre",
+    12 => "Diciembre"
   }
 
   def pretty_time(time) do
     now = NaiveDateTime.utc_now()
     seconds = NaiveDateTime.diff(now, time, :second)
-    relation = if seconds < 0, do: "from now", else: "ago"
+    relation = if seconds < 0, do: "from now", else: ""
     time = time |> DateTime.from_naive!("Etc/UTC")
 
     words = distance_of_time_in_words(now, time)

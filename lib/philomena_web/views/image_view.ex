@@ -180,7 +180,7 @@ defmodule PhilomenaWeb.ImageView do
 
   def quick_tag(conn) do
     if can?(conn, :batch_update, Tag) do
-      render(PhilomenaWeb.ImageView, "_quick_tag.html", conn: conn)
+     # render(PhilomenaWeb.ImageView, "_quick_tag.html", conn: conn)
     end
   end
 
@@ -199,17 +199,10 @@ defmodule PhilomenaWeb.ImageView do
   def hidden_toggle(%{assigns: %{current_user: nil}}, _route, _params), do: nil
 
   def hidden_toggle(conn, route, params) do
-    render(PhilomenaWeb.ImageView, "_hidden_toggle.html", route: route, params: params, conn: conn)
+   # render(PhilomenaWeb.ImageView, "_hidden_toggle.html", route: route, params: params, conn: conn)
   end
 
   def deleted_toggle(conn, route, params) do
-    if hides_images?(conn) do
-      render(PhilomenaWeb.ImageView, "_deleted_toggle.html",
-        route: route,
-        params: params,
-        conn: conn
-      )
-    end
   end
 
   defp thumb_format("svg", _name, false), do: "png"
