@@ -4,15 +4,15 @@
   = cond do
     - @image.duplicate_id ->
       .media-box__overlay
-        strong Marked Duplicate
+        strong Marcar duplicado
 
     - @image.destroyed_content ->
       .media-box__overlay
-        strong Destroyed Content
+        strong Contenido borrado
 
     - @image.hidden_from_users ->
       .media-box__overlay
-        strong Deleted:
+        strong Borrado:
         =< @image.deletion_reason
         
     - true ->
@@ -56,4 +56,4 @@
     - :not_rendered ->
       .media-box__overlay.js-spoiler-info-overlay
       a href=link
-        ' Thumbnails not yet generated
+        ' Las miniaturas aún no se generan

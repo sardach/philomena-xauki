@@ -1,9 +1,9 @@
 = if present?(@conn.params["hidden"]) do
-  a href=@route.(Keyword.delete(@params, :hidden)) title="Hide Hidden Images"
+  a href=@route.(Keyword.delete(@params, :hidden)) title="Esconder imagenes escondidas"
     i.fa.fa-eye-slash>
-    span.hide-mobile.hide-limited-desktop Hide Hidden
+    span.hide-mobile.hide-limited-desktop Esconder escondidas
 
 - else
-  a href=@route.(Keyword.put(@params, :hidden, "1")) title="Show Hidden Images"
+  a href=@route.(Keyword.put(@params, :hidden, "1")) title="Mostrar imagenes escondidas"
     i.fa.fa-eye-slash>
-    span.hide-mobile.hide-limited-desktop Show Hidden
+    span.hide-mobile.hide-limited-desktop Mostrar escondidas

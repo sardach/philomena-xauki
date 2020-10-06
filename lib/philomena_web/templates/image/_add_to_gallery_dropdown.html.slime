@@ -1,7 +1,7 @@
 .dropdown.block__header__dropdown-tab
   a href="#"
     i.fa.fa-images>
-    span.hide-limited-desktop.hide-mobile Galleries
+    span.hide-limited-desktop.hide-mobile Colecciones
     span data-click-preventdefault="true"
       i.fa.fa-caret-down>
   .dropdown__content.dropdown__content-right
@@ -10,20 +10,20 @@
         .block__list
           a.block__list__link.primary href=Routes.gallery_path(@conn, :index, gallery: [include_image: @image.id])
             i.fa.fa-table>
-            span.hide-mobile Featured in
+            span Aparece en
 
         = if Enum.any?(@user_galleries) do
           ul.block__list.js-gallery-list
             = for {gallery, present} <- @user_galleries do
               = if present do
-                / Options to remove
+                / Opciones para remover
                 li id="gallery_#{gallery.id}"
                   a.block__list__link.js-gallery-add.hidden data-fetchcomplete-hide="#gallery_#{gallery.id} .js-gallery-add" data-fetchcomplete-show="#gallery_#{gallery.id} .js-gallery-remove" data-method="post" data-remote="true" href=Routes.gallery_image_path(@conn, :create, gallery, image_id: @image.id)
                     = gallery.title
                   a.block__list__link.active.js-gallery-remove data-fetchcomplete-hide="#gallery_#{gallery.id} .js-gallery-remove" data-fetchcomplete-show="#gallery_#{gallery.id} .js-gallery-add" data-method="delete" data-remote="true" href=Routes.gallery_image_path(@conn, :delete, gallery, image_id: @image.id)
                     = gallery.title
               - else
-                / Options to add
+                / Opciones para añadir
                 li id="gallery_#{gallery.id}"
                   a.block__list__link.js-gallery-add data-fetchcomplete-hide="#gallery_#{gallery.id} .js-gallery-add" data-fetchcomplete-show="#gallery_#{gallery.id} .js-gallery-remove" data-method="post" data-remote="true" href=Routes.gallery_image_path(@conn, :create, gallery, image_id: @image.id)
                     = gallery.title
@@ -34,8 +34,8 @@
           = if @conn.assigns.current_user do
             a.block__list__link.primary href=Routes.gallery_path(@conn, :new, with_image: @image.id)
               i.fa.fa-plus>
-              span.hide-limited-desktop.hide-mobile Create a gallery
+              span.hide-limited-desktop. Crear una colección
           - else
             a.block__list__link.primary href=Routes.session_path(@conn, :new)
               i.fa.fa-user-plus>
-              span.hide-limited-desktop.hide-mobile Sign in to create a gallery
+              span.hide-limited-desktop.hide-mobile Inicia sesión paracrear una colección

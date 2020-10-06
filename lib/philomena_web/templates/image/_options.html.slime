@@ -4,28 +4,25 @@
   .block__header.block__header--js-tabbed
     a href="#" data-click-tab="reporting" data-load-tab=Routes.image_reporting_path(@conn, :show, @image)
       i.fa.fa-exclamation-triangle>
-      | Report
-    a href="#" data-click-tab="sharing"
-      i.fa.fa-share>
-      | Share
+      | Reportar
     a href="#" data-click-tab="favoriters" data-load-tab=Routes.image_favorite_path(@conn, :index, @image)
       i.fa.fa-star>
-      | List favoriters
+      | Estadisticas de favoritos
     = if display_mod_tools? and not hide_staff_tools?(@conn) do
       a href="#" data-click-tab="replace"
         i.fa.fa-upload>
-        | Replace
+        | Reemplazar
       a href="#" data-click-tab="administration"
         i.fa.fa-toolbox>
-        | Manage
+        | Administrar
         = if present?(@image.scratchpad) do
           i.fa.fa-sticky-note.fa--important<
           i.fa.fa-exclamation.fa--important
 
   .block__tab.hidden data-tab="favoriters"
-    p Loading...
+    p Cargando...
   .block__tab.hidden data-tab="reporting"
-    p Loading...
+    p Cargando...
   .block__tab.hidden data-tab="sharing"
     #embed_options
       - source_link = if @image.source_url in [nil, ""], do: " (Original source unknown at time of posting)", else: " - [url=#{@image.source_url}]Original source[/url]"
@@ -70,18 +67,13 @@
     .block__tab.hidden data-tab="replace"
       = form_for @changeset, Routes.image_file_path(@conn, :update, @image), [method: "put", multipart: true], fn f ->
         #js-image-upload-previews
-        p Upload a file from your computer
+        p Sube una foto
         .field
           = file_input f, :image, class: "input js-scraper"
 
-        .field.field--inline
-          = url_input f, :scraper_url, class: "input input--wide js-scraper", placeholder: "Link a deviantART page, a Tumblr post, or the image directly"
-          button.button.button--separate-left#js-scraper-preview(type="button" title="Fetch the image at the specified URL" data-disable-with="Fetch" disabled)
-            ' Fetch
-
         .field-error-js.hidden.js-scraper
 
-        = submit "Save changes", class: "button", data: [disable_with: raw("Replacing&hellip;")]
+        = submit "Guardar cambios", class: "button", data: [disable_with: raw("Replacing&hellip;")]
 
     .block__tab.hidden data-tab="administration"
       .block.block--danger
