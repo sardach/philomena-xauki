@@ -107,7 +107,7 @@ defmodule PhilomenaWeb.ActivityController do
     render(
       conn,
       "index.html",
-      title: "Homepage",
+      title: "Archivo de Stickers y Grafitis",
       images: images,
       comments: comments,
       top_scoring: top_scoring,

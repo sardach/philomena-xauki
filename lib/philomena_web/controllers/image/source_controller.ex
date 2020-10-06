@@ -1,6 +1,7 @@
 defmodule PhilomenaWeb.Image.SourceController do
   use PhilomenaWeb, :controller
-
+  
+  require PhilomenaWeb.ImageController
   alias Philomena.SourceChanges.SourceChange
   alias Philomena.UserStatistics
   alias Philomena.Images.Image

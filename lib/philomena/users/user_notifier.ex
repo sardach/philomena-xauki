@@ -23,75 +23,73 @@ defmodule Philomena.Users.UserNotifier do
   Deliver instructions to confirm account.
   """
   def deliver_confirmation_instructions(user, url) do
-    deliver(user.email, "Confirmation instructions for your account", """
+    deliver(user.email, "Confirma tu cuenta de Xauki", """
 
     ==============================
 
-    Hi #{user.name},
+    ¡Hola! #{user.name},
 
-    You can confirm your account by visiting the URL below:
+    Puedes confirmar tu cuenta entrando al siguiente enlace:
 
     #{url}
-
-    If you didn't create an account with us, please ignore this.
 
     ==============================
     """)
   end
 
   @doc """
-  Deliver instructions to reset password for an account.
+  Cambio de contraseña Xauki
   """
   def deliver_reset_password_instructions(user, url) do
-    deliver(user.email, "Password reset instructions for your account", """
+    deliver(user.email, "Instrucciones para resetear contraseña de Xauki", """
 
     ==============================
 
-    Hi #{user.name},
+    ¡Hola! #{user.name},
 
-    You can reset your password by visiting the URL below:
+    Puedes cambiar tu contraseña entrando al siguiente enlace:
 
     #{url}
 
-    If you didn't request this change, please ignore this.
+    Si no solicitaste este cambio, ignora este correo.
 
     ==============================
     """)
   end
 
   @doc """
-  Deliver instructions to update an account email.
+  Cambio de Coreeo Xauk
   """
   def deliver_update_email_instructions(user, url) do
     deliver(user.email, "Email update instructions for your account", """
 
     ==============================
 
-    Hi #{user.name},
+    ¡Hola! #{user.name},
 
-    You can change your email by visiting the URL below:
+    Puedes cambiar tu correo entrando al siguiente enlace:
 
     #{url}
 
-    If you didn't request this change, please ignore this.
+    Si no solicitaste este cambio, ignora este mensaje.
 
     ==============================
     """)
   end
 
   @doc """
-  Deliver instructions to unlock an account.
+  Insturcciones para desbloquear tu cuenta Xauki
   """
   def deliver_unlock_instructions(user, url) do
     deliver(user.email, "Unlock instructions for your account", """
 
     ==============================
 
-    Hi #{user.name},
+    ¡Hola! #{user.name},
 
-    Your account has been automatically locked due to too many attempts to sign in.
+    Tu cuenta se bloqueo automaticamente debido a muchos intentos fallidos de entrada.
 
-    You can unlock your account by visting the URL below:
+    Para desbloquearla, entra al siguiente enlace:
 
     #{url}
 
