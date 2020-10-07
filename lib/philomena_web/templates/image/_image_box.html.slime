@@ -25,7 +25,7 @@ elixir:
     a.interaction--fave href="#" rel="nofollow" data-image-id=@image.id
       span.fave-span title="Fave!"
         i.fa.fa-star
-      span.favorites title="Favorites" data-image-id=@image.id = @image.faves_count
+      span.favorites title="Favoritos" data-image-id=@image.id = @image.faves_count
     a.interaction--upvote href="#" rel="nofollow" data-image-id=@image.id
       i.fa.fa-thumbs-up title="Yay!"
     span.score title="Score" data-image-id=@image.id = @image.score

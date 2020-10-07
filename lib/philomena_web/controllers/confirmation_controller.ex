@@ -22,8 +22,8 @@ defmodule PhilomenaWeb.ConfirmationController do
     conn
     |> put_flash(
       :info,
-      "If your email is in our system and it has not been confirmed yet, " <>
-        "you will receive an email with instructions shortly."
+      "Si tu email esta en nuestro sistema y no ha sido confirmado, " <>
+        "recibiras un email con instrucciones en breve."
     )
     |> redirect(to: "/")
   end
@@ -34,12 +34,12 @@ defmodule PhilomenaWeb.ConfirmationController do
     case Users.confirm_user(token) do
       {:ok, _} ->
         conn
-        |> put_flash(:info, "Account confirmed successfully.")
+        |> put_flash(:info, "Cuenta verificada satisfactoriamente")
         |> redirect(to: "/")
 
       :error ->
         conn
-        |> put_flash(:error, "Confirmation link is invalid or it has expired.")
+        |> put_flash(:error, "El enlace de confirmación expiró")
         |> redirect(to: "/")
     end
   end

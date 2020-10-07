@@ -40,7 +40,7 @@
       br 
       | Es obligatorio incluir al menos una de estas etiquetas: Sticker, Graffiti u Otro.
       br
-      | Si conoces o eres el autor de la obra, añade la etiqueta con este formato: author:Nombre
+      | Si conoces o eres el autor de la obra, añade la etiqueta con este formato: artist:Nombre
       br
       | Se recomienda añadir la ciudad o zona donde tomaste la foto, p. ej.: CDMX, Querétaro, Colonia Narvarte...
 

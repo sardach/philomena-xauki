@@ -1,9 +1,9 @@
 .block__header.block__header--js-tabbed
-  = link "Voting", to: "#", class: "selected", data: [click_tab: "voting"]
+  = link "Votando", to: "#", class: "selected", data: [click_tab: "voting"]
 
   = if can?(@conn, :hide, @topic) do
-    = link "Voters", to: "#", data: [click_tab: "voters", load_tab: Routes.forum_topic_poll_vote_path(@conn, :index, @forum, @topic)]
-    = link "Administrate", to: "#", data: [click_tab: "administration"]
+    = link "Votantes", to: "#", data: [click_tab: "voters", load_tab: Routes.forum_topic_poll_vote_path(@conn, :index, @forum, @topic)]
+    = link "Administrar", to: "#", data: [click_tab: "administration"]
 
 .block__tab data-tab="voting"
   = cond do
@@ -12,9 +12,9 @@
       .block.block--fixed.block--warning
         h1 This poll has been deleted
         p
-          ' Reason:
+          ' Razón:
           strong
-            = @poll.deletion_reason || "Unknown (likely deleted in error). Please contact a moderator."
+            = @poll.deletion_reason || "Unknown (likely deleted in error). Por favor contacta a un moderador."
 
     - @poll_active and not @voted and not is_nil(@conn.assigns.current_user) ->
       .poll
@@ -33,4 +33,4 @@
   .block__tab.hidden data-tab="administration"
     a.button.button--state-warning.js-staff-action> href=Routes.forum_topic_poll_path(@conn, :edit, @forum, @topic)
       i.fa.fa-edit>
-      | Edit
+      | Editar

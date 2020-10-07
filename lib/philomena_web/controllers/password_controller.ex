@@ -24,7 +24,7 @@ defmodule PhilomenaWeb.PasswordController do
     conn
     |> put_flash(
       :info,
-      "If your email is in our system, you will receive instructions to reset your password shortly."
+      "Si tu email esta en nuestro sistema, recibiras un mensaje con instrucciones para cambiar tu contraseña en breve"
     )
     |> redirect(to: "/")
   end
@@ -39,7 +39,7 @@ defmodule PhilomenaWeb.PasswordController do
     case Users.reset_user_password(conn.assigns.user, user_params) do
       {:ok, _} ->
         conn
-        |> put_flash(:info, "Password reset successfully.")
+        |> put_flash(:info, "Contraseña cambiada sin problema")
         |> redirect(to: Routes.session_path(conn, :new))
 
       {:error, changeset} ->
@@ -54,7 +54,7 @@ defmodule PhilomenaWeb.PasswordController do
       conn |> assign(:user, user) |> assign(:token, token)
     else
       conn
-      |> put_flash(:error, "Reset password link is invalid or it has expired.")
+      |> put_flash(:error, "El enlace expiró")
       |> redirect(to: "/")
       |> halt()
     end

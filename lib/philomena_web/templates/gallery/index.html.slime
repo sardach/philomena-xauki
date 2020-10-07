@@ -6,28 +6,28 @@ elixir:
   .column-layout__left
     .block
       .block__content
-        h3 Search Galleries
+        h3 Buscar colecciones
 
         = form_for @conn, Routes.gallery_path(@conn, :index), [as: :gallery, method: "get", class: "hform"], fn f ->
-          .field = label f, :title, "Title"
-          .field = text_input f, :title, class: "input hform__text", placeholder: "Gallery title (* as wildcard)"
+          .field = label f, :title, "Título"
+          .field = text_input f, :title, class: "input hform__text", placeholder: "Título de la colección"
 
-          .field = label f, :description, "Description"
-          .field = textarea f, :description, class: "input hform__text", placeholder: "Gallery description"
+          .field = label f, :description, "Descripción"
+          .field = textarea f, :description, class: "input hform__text", placeholder: "Descripción"
 
-          .field = label f, :creator, "Creator"
-          .field = text_input f, :creator, class: "input hform__text", placeholder: "Gallery creator (exact match)"
+          .field = label f, :creator, "Creador"
+          .field = text_input f, :creator, class: "input hform__text", placeholder: "Creador de la colección"
 
-          .field = label f, :include_image, "Include image"
-          .field = number_input f, :include_image, class: "input hform__text", placeholder: "Image ID (e.g. 100)"
+          .field = label f, :include_image, "Incluye la imagen..."
+          .field = number_input f, :include_image, class: "input hform__text", placeholder: "ID de imagen"
 
-          .field = label f, :sf, "Sort by"
+          .field = label f, :sf, "Ordenar por"
           .field
-            => select f, :sf, ["Creation Date": "created_at", "Update Date": "updated_at", "Image Count": "image_count", "Relevance": "_score"], class: "input"
-            => select f, :sd, ["Descending": "desc", "Ascending": "asc"], class: "input"
+            => select f, :sf, ["Fecha de creación": "created_at", "Ultima Actualización": "updated_at", "Cantidad de imagenes": "image_count", "Relevancia": "_score"], class: "input"
+            => select f, :sd, ["Descendente": "desc", "Ascendente": "asc"], class: "input"
 
           .field
-          = submit "Search", class: "button button--state-primary"
+          = submit "Buscar", class: "button button--state-primary"
 
   .column-layout__main
     .block
@@ -41,7 +41,7 @@ elixir:
 
         - else
           .block.block--fixed.block--no-margin.block--warning
-            ' No galleries found!
+            ' No se encontraron colecciones bajo tus terminos de busqueda :(
 
       .block__header.block__header--light
         = pagination

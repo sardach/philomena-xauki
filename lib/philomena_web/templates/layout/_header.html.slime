@@ -4,7 +4,7 @@ header.header
       a.header__link href="/"
         span.logohome xauki
     = form_for @conn, Routes.search_path(@conn, :index), [method: "get", class: "header__search flex flex--no-wrap flex--centered", enforce_utf8: false], fn f ->
-      input.input.header__input.header__input--search#q name="q" title="uwu" value=@conn.params["q"] placeholder="Buscar" autocapitalize="none"
+      input.input.header__input.header__input--search#q name="q" title="uwu" value=@conn.params["q"] placeholder="Buscar (ej.: sticker, cdmx, anime)" autocapitalize="none"
 
       = if present?(@conn.params["sf"]) do
         input type="hidden" name="sf" value=@conn.params["sf"]
@@ -62,9 +62,6 @@ header.header
             a.header__link href="/comments?cq=my:comments"
               i.fa.fa-fw.fa-comments>
               | Comentarios
-            a.header__link href="/settings/edit"
-              i.fa.fa-fw.fa-cogs>
-              | Ajustes
             a.header__link href=Routes.registration_path(@conn, :edit)
               i.fa.fa-fw.fa-user>
               | Cuenta

@@ -1,5 +1,5 @@
 h1
-  ' Tag changes by
+  ' Cambios en etiquetas por:
   a href=Routes.profile_path(@conn, :show, @user)
     = @user.name
 
@@ -10,10 +10,10 @@ h1
 .block
   .block__header
     span.block__header__title
-      | Display only:
+      | Mostrar solo:
 
-    = link "Removed", to: Routes.profile_tag_change_path(@conn, :index, @user, added: 0)
-    = link "Added", to: Routes.profile_tag_change_path(@conn, :index, @user, added: 1)
-    = link "All", to: Routes.profile_tag_change_path(@conn, :index, @user)
+    = link "Eliminadas", to: Routes.profile_tag_change_path(@conn, :index, @user, added: 0)
+    = link "Añadidas", to: Routes.profile_tag_change_path(@conn, :index, @user, added: 1)
+    = link "Todo", to: Routes.profile_tag_change_path(@conn, :index, @user)
 
   = render PhilomenaWeb.TagChangeView, "index.html", conn: @conn, tag_changes: @tag_changes, pagination: pagination

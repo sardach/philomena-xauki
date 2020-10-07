@@ -9,7 +9,7 @@ elixir:
   .block#imagelist-container
     section.block__header.flex
       span.block__header__title.hide-mobile
-        ' Viewing gallery
+        ' Viendo Colección
         strong>
           = @gallery.title
 
@@ -20,37 +20,37 @@ elixir:
 
         a href=Routes.gallery_report_path(@conn, :new, @gallery)
           i.fa.fa-exclamation-triangle>
-          span.hide-mobile Report
+          span.hide-mobile Reportar
 
         = if can?(@conn, :edit, @gallery) do
           a href=Routes.gallery_path(@conn, :edit, @gallery)
             i.fas.fa-edit>
-            span.hide-mobile Edit
+            span.hide-mobile Editar
 
         = if can?(@conn, :edit, @gallery) do
           a.rearrange-button.js-rearrange href="#" data-click-hide=".js-rearrange" data-click-show=".js-save,#gallery-rearrange-info"
             i.fa.fa-sort>
-            ' Rearrange
+            ' Reordenar
 
           a.rearrange-button.js-save.hidden href="#" data-click-hide=".js-save,#gallery-rearrange-info" data-click-show=".js-rearrange" data-reorder-path=Routes.gallery_order_path(@conn, :update, @gallery)
             i.fa.fa-check>
-            ' Save
+            ' Guardar
 
           a href=Routes.gallery_path(@conn, :delete, @gallery) data-method="delete" data-confirm="Are you really, really sure?"
             i.fa.fa-trash>
-            span.hide-mobile Delete
+            span.hide-mobile Borrar
 
         = if show_subscription_link?(@gallery.creator, @conn.assigns.current_user) do
           = render PhilomenaWeb.Gallery.SubscriptionView, "_subscription.html", watching: @watching, gallery: @gallery, conn: @conn
 
     .block__header.block__header--light.block__header--sub
-      span.block__header__title A gallery by
+      span.block__header__title Una colección de
 
       => link @gallery.creator.name, to: Routes.profile_path(@conn, :show, @gallery.creator)
-      ' with
+      ' con
       => @gallery.image_count
-      = pluralize("image", "images", @gallery.image_count)
-      ' , last updated
+      = pluralize("imagen", "imagenes", @gallery.image_count)
+      ' , ultima actualización
       = pretty_time(@gallery.updated_at)
 
     .block__content.flex.js-imagelist-info
@@ -59,7 +59,7 @@ elixir:
 
       .flex__grow
         = if @gallery.spoiler_warning not in [nil, ""] do
-          strong> Warning:
+          strong> Alerta:
           = @gallery.spoiler_warning
 
         = if @gallery.description not in [nil, ""] do
@@ -67,9 +67,9 @@ elixir:
 
     .block__content.hidden#gallery-rearrange-info
       .block.block--fixed.block--primary
-        | Click the image and drag.
+        | Clic en la imagen y arrastra
         br
-        strong Note that you may have to wait a couple of seconds before the order is applied.
+        strong Tendras que esperar unos segundos antes de que los cambios surtan efecto
 
     .block__content.js-resizable-media-container
       = for {image, hit} <- @gallery_images do

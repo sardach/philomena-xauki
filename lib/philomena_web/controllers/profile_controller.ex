@@ -53,6 +53,13 @@ defmodule PhilomenaWeb.ProfileController do
         pagination: %{page_number: 1, page_size: 4}
       )
 
+    {:ok, {fotos_rel, _tags}} =
+      ImageLoader.search_string(
+        conn,
+        "sticker",
+        pagination: %{page_number: 1, page_size: 4}
+      )
+
     tags = tags(conn.assigns.user.public_links)
 
     all_tag_ids =
@@ -114,15 +121,16 @@ defmodule PhilomenaWeb.ProfileController do
         %{page_size: 6}
       )
 
-    [recent_uploads, recent_faves, recent_artwork, recent_comments, recent_posts] =
+    [recent_uploads, recent_faves, recent_artwork, recent_comments, recent_posts,fotos_rel] =
       Elasticsearch.msearch_records(
-        [recent_uploads, recent_faves, recent_artwork, recent_comments, recent_posts],
+        [recent_uploads, recent_faves, recent_artwork, recent_comments, recent_posts, fotos_rel],
         [
           preload(Image, :tags),
           preload(Image, :tags),
           preload(Image, :tags),
           preload(Comment, user: [awards: :badge], image: :tags),
-          preload(Post, user: [awards: :badge], topic: :forum)
+          preload(Post, user: [awards: :badge], topic: :forum),
+          preload(Image, :tags),
         ]
       )
 
@@ -150,7 +158,7 @@ defmodule PhilomenaWeb.ProfileController do
     statistics = calculate_statistics(user)
 
     interactions =
-      Interactions.user_interactions([recent_uploads, recent_faves, recent_artwork], current_user)
+      Interactions.user_interactions([recent_uploads, recent_faves, recent_artwork, fotos_rel], current_user)
 
     forced = user.forced_filter
 
@@ -180,7 +188,7 @@ defmodule PhilomenaWeb.ProfileController do
       forced: forced,
       bans: bans,
       layout_class: "layout--medium",
-      title: "#{user.name}'s profile"
+      title: "Perfil de #{user.name}'"
     )
   end
 

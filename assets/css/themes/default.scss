@@ -694,3 +694,15 @@ table#pie tbody tr th a i.fab {
 #footer #serving_info {
     font-size: 8.5px;
 }
+
+input#q::placeholder {
+    font-size: 11px;
+}
+select.input:hover, select.input:focus:hover {
+    cursor: pointer;
+    background-color: #302e2e !important;
+}
+
+.block__header--light, .block__header--js-tabbed {
+    background: #0f1b15 !important;
+}

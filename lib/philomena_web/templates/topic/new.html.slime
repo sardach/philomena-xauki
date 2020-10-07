@@ -7,15 +7,15 @@
     .block__header.block__header--js-tabbed
       a.selected href="#" data-click-tab="write"
         i.fas.fa-pencil-alt>
-        ' Create a Topic
+        ' Crear Tema
 
       a href="#" data-click-tab="preview"
         i.fa.fa-eye>
-        ' Preview
+        ' Vista Previa
 
     .block__tab.communication-edit__tab.selected data-tab="write"
       .field
-        = text_input f, :title, class: "input input--wide", placeholder: "Title"
+        = text_input f, :title, class: "input input--wide", placeholder: "Título"
         = error_tag f, :title
         = error_tag f, :slug
 
@@ -23,16 +23,16 @@
         .field
           = render PhilomenaWeb.TextileView, "_help.html", conn: @conn
           = render PhilomenaWeb.TextileView, "_toolbar.html", conn: @conn
-          = textarea fp, :body, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Please read the site rules before posting and use [spoiler][/spoiler] for NSFW stuff in SFW forums.", required: true
+          = textarea fp, :body, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Postea usando el sentido común. No divulgación de datos personales, contenido ilegal ni discursos de odio", required: true
           = error_tag fp, :body
 
       = if @conn.assigns.current_user do
         .field
           => checkbox f, :anonymous, value: anonymous_by_default?(@conn)
-          = label f, :anonymous, "Post anonymously"
+          = label f, :anonymous, "Postear anónimamente"
 
       = inputs_for f, :poll, fn fp ->
-        #add-poll
+        #add-poll style="display:none;"
           input.toggle-box id="add_poll" name="add_poll" type="checkbox"
           label for="add_poll" Add a poll
           .toggle-box-container
@@ -42,4 +42,4 @@
       ' [Loading preview...]
 
     .block__content.communication-edit__actions
-      = submit "Post", class: "button", data: [disable_with: raw("Posting&hellip;")]
+      = submit "Postear", class: "button", data: [disable_with: raw("Posting&hellip;")]

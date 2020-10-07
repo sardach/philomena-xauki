@@ -1,18 +1,18 @@
-h1 Discussion Forums
+h1 Comunidad / Foro de discución
 .block
   .block__header
-    /= icon_link 'Search Posts', 'fa fa-fw fa-search', posts_path
+    /= icon_link 'Buscar posts', 'fa fa-fw fa-search', posts_path
     span.block__header__item
       => @topic_count
-      ' topics
+      ' temas
   .block__content
     table.table.table--communication-list
       thead
         tr
-          th.table--communication-list__name Forum
-          th.table--communication-list__stats.hide-mobile Topics
+          th.table--communication-list__name Foro
+          th.table--communication-list__stats.hide-mobile Temas
           th.table--communication-list__stats.hide-mobile Posts
-          th.table--communication-list__last-post Last Post
+          th.table--communication-list__last-post Ultimo Post
       tbody
         = for forum <- @forums do
           tr
@@ -26,8 +26,8 @@ h1 Discussion Forums
                 strong
                   => link(forum.last_post.topic.title, to: Routes.forum_topic_path(@conn, :show, forum.last_post.topic.forum, forum.last_post.topic))
                 br
-                => link("Go to post", to: Routes.forum_topic_path(@conn, :show, forum.last_post.topic.forum, forum.last_post.topic, post_id: forum.last_post.id) <> "#post_#{forum.last_post.id}")
-                ' by
+                => link("Ir al post", to: Routes.forum_topic_path(@conn, :show, forum.last_post.topic.forum, forum.last_post.topic, post_id: forum.last_post.id) <> "#post_#{forum.last_post.id}")
+                ' por
                 => render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: forum.last_post, conn: @conn
                 br
                 => pretty_time(forum.last_post.created_at)

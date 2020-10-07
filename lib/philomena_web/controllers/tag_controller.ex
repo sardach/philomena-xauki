@@ -44,10 +44,10 @@ defmodule PhilomenaWeb.TagController do
         )
         |> Elasticsearch.search_records(Tag)
 
-      render(conn, "index.html", title: "Tags", tags: tags)
+      render(conn, "index.html", title: "Etiquetas", tags: tags)
     else
       {:error, msg} ->
-        render(conn, "index.html", title: "Tags", tags: [], error: msg)
+        render(conn, "index.html", title: "Etiquetas", tags: [], error: msg)
     end
   end
 
@@ -83,13 +83,13 @@ defmodule PhilomenaWeb.TagController do
       interactions: interactions,
       images: images,
       layout_class: "layout--wide",
-      title: "#{tag.name} - Tags"
+      title: "#{tag.name} - Etiquetas"
     )
   end
 
   def edit(conn, _params) do
     changeset = Tags.change_tag(conn.assigns.tag)
-    render(conn, "edit.html", title: "Editing Tag", changeset: changeset)
+    render(conn, "edit.html", title: "Editandoo Etiqueta", changeset: changeset)
   end
 
   def update(conn, %{"tag" => tag_params}) do

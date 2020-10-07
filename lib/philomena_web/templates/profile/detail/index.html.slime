@@ -1,6 +1,6 @@
 h2
   = link @user.name, to: Routes.profile_path(@conn, :show, @user)
-  | 's User Details
+  | - Detalles de perfil
 
 h4 Mod Notes
 = render PhilomenaWeb.Admin.ModNoteView, "_table.html", mod_notes: @mod_notes, conn: @conn

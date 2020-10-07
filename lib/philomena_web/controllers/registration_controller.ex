@@ -26,7 +26,7 @@ defmodule PhilomenaWeb.RegistrationController do
         conn
         |> put_flash(
           :info,
-          "Account created successfully. Check your email for confirmation instructions."
+          "Cuenta creada. Checa tu email para activarla"
         )
         |> redirect(to: "/")
 

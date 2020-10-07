@@ -10,14 +10,14 @@ elixir:
     a.js-subscription-link href=watch_path class=watch_class data-remote="true" data-method="post"
       i.fa.fa-bell>
       span.hide-mobile
-        ' Subscribe
+        ' Recibir notificaciones
 
     a.js-subscription-link href=unwatch_path class=unwatch_class data-remote="true" data-method="delete"
       i.fa.fa-bell-slash>
       span.hide-mobile
-        ' Unsubscribe
+        ' No recibir notificaciones
 - else
     a href=Routes.session_path(@conn, :new)
       i.fa.fa-bell>
       span.hide-mobile
-        ' Subscribe
+        ' Recibir notificaciones

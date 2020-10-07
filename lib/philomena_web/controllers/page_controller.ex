@@ -7,7 +7,7 @@ defmodule PhilomenaWeb.PageController do
   plug :load_and_authorize_resource, model: StaticPage, id_field: "slug"
 
   def index(conn, _params) do
-    render(conn, "index.html", title: "Pages")
+    render(conn, "index.html", title: "Paginas")
   end
 
   def show(conn, _params) do

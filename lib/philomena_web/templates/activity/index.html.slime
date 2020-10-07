@@ -56,14 +56,3 @@ link href="https://xauki.com/scroller.css" rel="stylesheet" /
     = render PhilomenaWeb.ImageView, "index.html", conn: @conn, images: @images, size: :thumb
     = if not is_nil(@watched) and Enum.any?(@watched) do
       .block
-        .block__header
-          span.block__header__title
-            ' Watched Images
-          a href="/search?q=my:watched" title="Browse Watched Images"
-            i.fa.fa-eye>
-            span.hide-mobile
-              ' Browse Watched Images
-        .block__content.js-resizable-media-container
-          = for image <- @watched do
-            = render PhilomenaWeb.ImageView, "_image_box.html", image: image, link: Routes.image_path(@conn, :show, image, q: "my:watched"), size: :thumb_small, conn: @conn
-

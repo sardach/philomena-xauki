@@ -1,7 +1,7 @@
-h1 Your Reports
+h1 Tus Reportes
 .block
   .block__header
-    span.block__header__title Reports
+    span.block__header__title Reportes
     - route = fn p -> Routes.report_path(@conn, :index, p) end
     = render PhilomenaWeb.PaginationView, "_pagination.html", page: @reports, route: route, conn: @conn
 
@@ -9,10 +9,10 @@ h1 Your Reports
     table.table
       thead
         tr
-          th State
-          th Reported Thing
-          th Reason
-          th Opened
+          th Estado
+          th Reporte
+          th Razón
+          th Abierto
       tbody
         = for r <- @reports do
           tr

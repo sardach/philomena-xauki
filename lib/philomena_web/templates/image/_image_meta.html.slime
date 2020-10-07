@@ -39,10 +39,14 @@
       a href="#{pretty_url(@image, false, true)}" rel="nofollow" title="Download (tags in filename)"
         i.fa.fa-download>
         | Descargar
-      span.twitter-share data-js="twitter-share" 
-        img height="25px" src="/twitter.png" /
-      span.facebook-share data-js="facebook-share" 
-        img height="25px" src="/facebook.png" /
+      a href="#"
+        span.twitter-share data-js="twitter-share" 
+          i.fab.fa-twitter-square>
+          | Twittear
+      a href="#"
+        span.facebook-share data-js="facebook-share" 
+          i.fab.fa-facebook-square>
+          | Compartir
       script src="/xauki.js" 
 
   .image-metabar.flex.flex--wrap.block__header--user-credit.center--layout#extrameta
@@ -51,27 +55,3 @@
       => pretty_time(@image.created_at)
       = render PhilomenaWeb.ImageView, "_uploader.html", assigns
 
-    span.image-size
-      | &nbsp;
-      = @image.image_width
-      | x
-      = @image.image_height
-
-      = if not is_nil(@image.image_duration) and @image.image_is_animated and @image.image_duration > 0 do
-        span.image-size title=@image.image_duration
-          | &nbsp;
-          - dur = trunc(@image.image_duration)
-          - ms = trunc((@image.image_duration - dur)*100)
-          - {mm, ss} = {div(dur, 60), rem(dur, 60)}
-          = :io_lib.format("~2..0B:~2..0B.~2..0B", [mm, ss, ms])
-
-      =<> String.upcase(to_string(@image.image_format))
-      - size_kb = div(@image.image_size, 1000)
-      - size_mb = Float.round(size_kb / 1000.0, 2)
-      span title="#{size_kb} kB"
-        = if size_kb <= 1000 do
-          => size_kb
-          | kB
-        - else
-          => size_mb
-          | MB

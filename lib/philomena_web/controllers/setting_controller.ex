@@ -12,7 +12,7 @@ defmodule PhilomenaWeb.SettingController do
       |> TagList.assign_tag_list(:watched_tag_ids, :watched_tag_list)
       |> Users.change_user()
 
-    render(conn, "edit.html", title: "Editing Settings", changeset: changeset)
+    render(conn, "edit.html", title: "Editando Ajustes", changeset: changeset)
   end
 
   def update(conn, %{"user" => user_params}) do
@@ -29,7 +29,7 @@ defmodule PhilomenaWeb.SettingController do
 
       {:error, changeset} ->
         conn
-        |> put_flash(:error, "Your settings could not be saved!")
+        |> put_flash(:error, "No se pueden guardar tus ajustes")
         |> render("edit.html", changeset: changeset)
     end
   end

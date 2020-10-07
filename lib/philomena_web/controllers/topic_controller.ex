@@ -84,7 +84,7 @@ defmodule PhilomenaWeb.TopicController do
 
     topic_changeset = Topics.change_topic(conn.assigns.topic)
 
-    title = "#{topic.title} - #{forum.name} - Forums"
+    title = "#{topic.title} - #{forum.name} - Foros"
 
     render(conn, "show.html",
       title: title,
@@ -102,7 +102,7 @@ defmodule PhilomenaWeb.TopicController do
       %Topic{poll: %Poll{options: [%PollOption{}, %PollOption{}]}, posts: [%Post{}]}
       |> Topics.change_topic()
 
-    render(conn, "new.html", title: "New Topic", changeset: changeset)
+    render(conn, "new.html", title: "Nuevo Tema", changeset: changeset)
   end
 
   def create(conn, %{"topic" => topic_params}) do
@@ -137,7 +137,7 @@ defmodule PhilomenaWeb.TopicController do
 
       _error ->
         conn
-        |> put_flash(:error, "There was an error with your submission. Please try again.")
+        |> put_flash(:error, "Hubo un error. Intentalo de nuevo")
         |> redirect(to: Routes.forum_topic_path(conn, :new, forum))
     end
   end
@@ -151,7 +151,7 @@ defmodule PhilomenaWeb.TopicController do
 
       {:error, _changeset} ->
         conn
-        |> put_flash(:error, "There was an error with your submission. Please try again.")
+        |> put_flash(:error, "Hubo un error, intentalo de nuevo")
         |> redirect(
           to: Routes.forum_topic_path(conn, :show, conn.assigns.forum, conn.assigns.topic)
         )

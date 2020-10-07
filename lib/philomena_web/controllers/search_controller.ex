@@ -17,7 +17,7 @@ defmodule PhilomenaWeb.SearchController do
 
         conn
         |> render("index.html",
-          title: "Searching for #{params["q"]}",
+          title: "Resultados de la busqueda: #{params["q"]}",
           images: images,
           tags: tags,
           search_query: params["q"],
@@ -27,7 +27,7 @@ defmodule PhilomenaWeb.SearchController do
 
       {:error, msg} ->
         render(conn, "index.html",
-          title: "Searching for #{params["q"]}",
+          title: "Resultados de la busqueda:  #{params["q"]}",
           images: [],
           error: msg,
           search_query: params["q"]

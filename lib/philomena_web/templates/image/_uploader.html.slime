@@ -1,5 +1,5 @@
 span.image_uploader
-  ' by
+  ' por
   => render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: @image, awards: true, conn: @conn
 
   = if can?(@conn, :show, :ip_address) and not hide_staff_tools?(@conn) do
@@ -12,15 +12,15 @@ span.image_uploader
 
 = if can?(@conn, :show, :ip_address) do
   = form_for @changeset, Routes.image_uploader_path(@conn, :update, @image), [class: "block__content hidden", id: "uploader-form", data: [remote: "true", method: "put"]], fn f ->
-    => label f, :username, "Uploader"
+    => label f, :username, "Subido por"
     => text_input f, :username, value: username(@image.user), class: "input input--short input--small"
 
-    = submit "Save Changes", class: "button button--small", data: [disable_with: raw("Saving&hellip;")]
+    = submit "Guardar cambios", class: "button button--small", data: [disable_with: raw("Saving&hellip;")]
 
     div Changes IP to '127.0.0.1' and FP to 'ffff'. Empty for anonymous.
 
   .image-anonymous.hidden
     = if @image.anonymous do
-      = button_to "Reveal author", Routes.image_anonymous_path(@conn, :delete, @image), class: "button button--small", method: "delete", data: [confirm: "Are you really, really sure?"]
+      = button_to "Revelar autor", Routes.image_anonymous_path(@conn, :delete, @image), class: "button button--small", method: "delete", data: [confirm: "¿Estas seguro?"]
     - else
-      = button_to "Hide author", Routes.image_anonymous_path(@conn, :create, @image), class: "button button--small", method: "create", data: [confirm: "Are you really, really sure?"]
+      = button_to "Esconder autor", Routes.image_anonymous_path(@conn, :create, @image), class: "button button--small", method: "create", data: [confirm: "¿Estas realmente seguro?"]

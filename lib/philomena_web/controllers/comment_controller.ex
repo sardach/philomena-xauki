@@ -43,11 +43,11 @@ defmodule PhilomenaWeb.CommentController do
 
     comments = %{comments | entries: Enum.zip(rendered, comments.entries)}
 
-    render(conn, "index.html", title: "Comments", comments: comments)
+    render(conn, "index.html", title: "Comentarios", comments: comments)
   end
 
   defp render_index({:error, msg}, conn, _user) do
-    render(conn, "index.html", title: "Comments", error: msg, comments: [])
+    render(conn, "index.html", title: "Comentarios", error: msg, comments: [])
   end
 
   defp filters(%{role: role}) when role in ["assistant", "moderator", "admin"], do: []

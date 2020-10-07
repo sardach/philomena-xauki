@@ -9,17 +9,13 @@
       = form_for @changeset, Routes.image_tag_path(@conn, :update, @image), [id: "tags-form", method: "put", data: [remote: true]], fn f ->
         = if @changeset.action do
           .alert.alert-danger
-            p Oops, something went wrong! Please check the errors below.
+            p ¡Algo salio mal!.
             
         = hidden_input f, :old_tag_input, value: tag_input
 
         .field
           = label f, :tag_input do
-            ' Separate tags with commas. Use 'artist:name' tags to identify artists. Got questions? Check the
-            a> href="/pages/tags" tag guidelines
-            ' or the
-            a href="/pages/spoilers" spoiler guidelines
-            ' .
+            ' Separa las etiquetas con comas o presionando Enter. La idea es que las etiquetas sirvan para poder encontrar las fotos de manera sencilla. Usa 'artist:nombre´ para identificar artistas. Si tienes dudas pregunta en el foro o el chat de Discord.
 
           = render PhilomenaWeb.TagView, "_tag_editor.html", f: f, name: :tag_input, type: :edit, extra: [value: tag_input]
           = error_tag f, :tag_input
@@ -27,39 +23,35 @@
         = if !@conn.assigns.current_user do
           .block.block--fixed.block--warning
             strong
-              em Hang on a sec&hellip;
+              em Espera un segundo&hellip;
             br
-            ' Make sure you have read and understood our
-            a> href="/pages/tags" tagging guidelines
-            ' before editing tags.
+            ' Asegurate de usar tu sentido común al etiquetar.
 
           = render PhilomenaWeb.CaptchaView, "_captcha.html", name: "tags", conn: @conn
 
         ul.horizontal-list
           li
             .actions
-              = submit "Save tags", class: "button", id: "edit_save_button", data: [disable_with: raw("Saving&hellip;")]
+              = submit "Guardar", class: "button", id: "edit_save_button", data: [disable_with: raw("Saving&hellip;")]
           li
             button.button.js-tag-sauce-toggle data-click-toggle=".tagsauce, .js-imageform" data-click-focus=".js-taginput-plain:not(.hidden), .js-taginput-input"
-              ' Cancel
+              ' Cancelar
 
-        .block.js-tagtable data-target="[name=&quot;image[tag_input]&quot;]"
-          = PhilomenaWeb.TagView.quick_tags(@conn)
 
     - else
       p
-        ' You can't edit the tags on this image.
+        ' No puedes editar las etiquetas de esta página
 
   .tagsauce
     .block
       a.button.js-tag-sauce-toggle#edit-tags data-click-toggle=".tagsauce, .js-imageform" data-click-focus=".js-taginput-plain:not(.hidden), .js-taginput-input" title="Edit tags" accessKey="t"
         i.fas.fa-edit>
-        ' Tags:
+        ' Etiquetas:
 
       = if @tag_change_count > 0 do
         a.button.button--link.button--separate-left href=Routes.image_tag_change_path(@conn, :index, @image) title="Tag history"
           i.fa.fa-history>
-          | History (
+          | Historial (
           = @tag_change_count
           | )
 

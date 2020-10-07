@@ -1,54 +1,21 @@
-h2 Submit a report
+h2 Hacer un reporte
 p
   strong
     = link_to_reported_thing(@conn, @reportable)
-
-.image-other
-  .dnp-warning
-    h3 Reporting Tips
-    ul
-      li
-        ' Make sure to report for the correct
-        = link "rule", to: "/pages/rules"
-        ' .
-      li One report per problem (mention all things affected, please).
-      li
-        strong Do not report someone just because they disagree with you. Abusing the report system is a bannable offense.
-  br
-
-  = if image?(@changeset) do
-    .dnp-warning
-      h3 Takedown Policy
-      p
-        strong> Only an owner of an image's rights (normally the artist) can request a takedown.
-        ' If you're the artist, you'll
-        strong> need
-        ' a verified user link.
-      p
-        ' For more information, please read the
-        = link "takedown policy", to: "/pages/takedowns"
-        ' .
-    br
-
-  = if conversation?(@changeset) do
-    .dnp-warning
-      h3 Privacy note
-      p
-        ' The whole conversation will be readable by site staff.
-    br
-
+    
+    
   = form_for @changeset, @action, fn f ->
-    .field
-      = select f, :category, report_categories(), class: "input"
+    .field style="display:none;"
+      = select f, :category, report_categories(), class: "input" 
     .block
       .block__header.block__header--js-tabbed
         a.selected href="#" data-click-tab="write"
           i.fas.fa-edit>
-          ' Edit
+          ' Editar
 
         a href="#" data-click-tab="preview"
           i.fa.fa-eye>
-          ' Preview
+          ' Vista previa
 
       .block__tab.communication-edit__tab.selected data-tab="write"
         = render PhilomenaWeb.TextileView, "_help.html", conn: @conn
@@ -62,4 +29,4 @@ p
 
     = render PhilomenaWeb.CaptchaView, "_captcha.html", name: "report", conn: @conn
 
-    = submit "Send Report", class: "button"
+    = submit "Enviar Reporte", class: "button"

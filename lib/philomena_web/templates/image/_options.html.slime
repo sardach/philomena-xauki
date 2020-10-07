@@ -26,7 +26,7 @@
   .block__tab.hidden data-tab="sharing"
     #embed_options
       - source_link = if @image.source_url in [nil, ""], do: " (Original source unknown at time of posting)", else: " - [url=#{@image.source_url}]Original source[/url]"
-      h5 Derpibooru
+      h5 Xauki
       p
         strong> Small thumbnail
         input.input#embed_small_thumbnail_tag type="text" value=">>#{@image.id}s" cols="10" readonly="readonly"
@@ -80,17 +80,17 @@
         a.button.button--link> href=Routes.image_scratchpad_path(@conn, :edit, @image)
           i.far.fa-edit
         = if present?(@image.scratchpad) do
-          strong> Mod notes:
+          strong> Notas de moderadores:
           = escape_nl2br @image.scratchpad
         - else
-          em No mod notes present
+          em Ningún moderador ha dejado notas
 
       = if not @image.hidden_from_users do
         = form_for @changeset, Routes.image_delete_path(@conn, :create, @image), [method: "post"], fn f ->
           = label f, :deletion_reason, "Deletion reason (cannot be empty)"
           .field.field--inline
             = text_input f, :deletion_reason, class: "input input--wide", placeholder: "Rule violation", required: true
-            = submit "Delete", class: "button button--state-danger button--separate-left"
+            = submit "Borrar", class: "button button--state-danger button--separate-left"
       - else
         = form_for @changeset, Routes.image_delete_path(@conn, :update, @image), [method: "put"], fn f ->
           = label f, :deletion_reason, "Deletion reason (cannot be empty)"

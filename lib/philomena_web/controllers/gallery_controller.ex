@@ -35,7 +35,7 @@ defmodule PhilomenaWeb.GalleryController do
       |> Elasticsearch.search_records(preload(Gallery, [:creator, thumbnail: :tags]))
 
     render(conn, "index.html",
-      title: "Galleries",
+      title: "Colecciones",
       galleries: galleries,
       layout_class: "layout--wide"
     )
@@ -80,7 +80,7 @@ defmodule PhilomenaWeb.GalleryController do
     |> NotificationCountPlug.call([])
     |> assign(:clientside_data, gallery_images: gallery_json)
     |> render("show.html",
-      title: "Showing Gallery",
+      title: "Mostrando Colección",
       layout_class: "layout--wide",
       watching: watching,
       gallery: gallery,
@@ -118,7 +118,7 @@ defmodule PhilomenaWeb.GalleryController do
     gallery = conn.assigns.gallery
     changeset = Galleries.change_gallery(gallery)
 
-    render(conn, "edit.html", title: "Editing Gallery", gallery: gallery, changeset: changeset)
+    render(conn, "edit.html", title: "Editando Colección", gallery: gallery, changeset: changeset)
   end
 
   def update(conn, %{"gallery" => gallery_params}) do
@@ -225,3 +225,4 @@ defmodule PhilomenaWeb.GalleryController do
   defp position_order(%{order_position_asc: true}), do: "asc"
   defp position_order(_gallery), do: "desc"
 end
+

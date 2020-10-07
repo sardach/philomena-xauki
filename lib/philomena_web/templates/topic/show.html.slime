@@ -5,15 +5,15 @@ h1 = @topic.title
 
 = if @topic.hidden_from_users do
   .block.block--fixed.block--danger
-    h4 This topic has been deleted by a moderator
+    h4 Este tema ha sido borrado por un moderador
     p
-      strong> Reason:
+      strong> Razón:
       em
         = @topic.deletion_reason
 
     = if can?(@conn, :hide, @topic) do
       p
-        strong> Deleted by:
+        strong> Borrado por:
         em
           strong
             = link(@topic.deleted_by.name, to: Routes.profile_path(@conn, :show, @topic.deleted_by))
@@ -21,12 +21,12 @@ h1 = @topic.title
       p
         = link(to: Routes.forum_topic_hide_path(@conn, :delete, @forum, @topic), method: :delete, class: "button") do
           i.fas.fa-check>
-          ' Restore
+          ' Restaurar
 
 / Header section
 .block
   .block__header
-    => link("Forums", to: Routes.forum_path(@conn, :index))
+    => link("Foros", to: Routes.forum_path(@conn, :index))
     ' &raquo;
     => link(@forum.name, to: Routes.forum_path(@conn, :show, @forum))
     ' &raquo;
@@ -35,19 +35,19 @@ h1 = @topic.title
     = if not @topic.hidden_from_users or can?(@conn, :hide, @topic) do
       a href=Routes.post_path(@conn, :index, pq: "topic_id:#{@topic.id}")
         i.fa.fa-fw.fa-search>
-        ' Search Posts
+        ' Buscar Posts
       .flex.flex--wrap.block__header.block__header--light
         .flex--fixed
           = pagination
         .flex--fixed.block__header__item
-          ' Started by
+          ' Comenzado por
           => render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: @topic, conn: @conn
         .flex--fixed.block__header__item
-          ' Posted
+          ' Posteado
           =< pretty_time(@topic.created_at)
         .flex--fixed.block__header__item
           => @topic.post_count - 1
-          ' replies
+          ' respuestas
         = if not @topic.hidden_from_users do
           = render PhilomenaWeb.Topic.SubscriptionView, "_subscription.html", forum: @forum, topic: @topic, watching: @watching, conn: @conn
 
@@ -111,46 +111,46 @@ h1 = @topic.title
               = if @topic.sticky do
                 = link(to: Routes.forum_topic_stick_path(@conn, :delete, @forum, @topic), method: :delete, class: "button") do
                   i.fas.fa-thumbtack>
-                  ' Unstick
+                  ' Quitar Sticky
 
               - else
                 = link(to: Routes.forum_topic_stick_path(@conn, :create, @forum, @topic), method: :post, class: "button") do
                   i.fas.fa-thumbtack>
-                  ' Stick
+                  ' Sticky
 
               = if @topic.locked_at do
                 = link(to: Routes.forum_topic_lock_path(@conn, :delete, @forum, @topic), method: :delete, class: "button") do
                   i.fas.fa-unlock>
-                  ' Unlock
+                  ' Desbloquear
 
               - else
                 = form_for :topic, Routes.forum_topic_lock_path(@conn, :create, @forum, @topic), [method: :post, class: "hform"], fn f ->
                   .field
-                    = text_input f, :lock_reason, class: "input hform__text", placeholder: "Lock reason", required: true
+                    = text_input f, :lock_reason, class: "input hform__text", placeholder: "Razón del bloqueo", required: true
                     = submit class: "hform__button button" do
                       i.fas.fa-lock>
-                      ' Lock
+                      ' Bloquear
 
               = form_for @topic_changeset, Routes.forum_topic_path(@conn, :update, @forum, @topic), [method: :put, class: "hform"], fn f ->
                 .field
-                  = text_input f, :title, class: "input hform__text", placeholder: "New Title"
+                  = text_input f, :title, class: "input hform__text", placeholder: "Nuevo Título"
                   = submit class: "hform__button button" do
                     i.fas.fa-pen>
-                    ' Set Title
+                    ' Cambiar Título
 
               = form_for :topic, Routes.forum_topic_move_path(@conn, :create, @forum, @topic), [method: :post, class: "hform"], fn f ->
                 .field
                   = select f, :target_forum_id, Enum.map(@conn.assigns.forums, &{&1.name, &1.id}), class: "input hform__text"
                   = submit class: "hform__button button" do
                     i.fas.fa-truck>
-                    ' Move
+                    ' Mover
 
               = form_for :topic, Routes.forum_topic_hide_path(@conn, :create, @forum, @topic), [method: :post, class: "hform"], fn f ->
                 .field
-                  = text_input f, :deletion_reason, class: "input hform__text", placeholder: "Deletion reason", required: true
+                  = text_input f, :deletion_reason, class: "input hform__text", placeholder: "Razón del borrado", required: true
                   = submit class: "hform__button button" do
                     i.fas.fa-trash>
-                    ' Delete
+                    ' Borrar
 
             - else
               | Moderation tools unavailable for deleted topics.

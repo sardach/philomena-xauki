@@ -33,6 +33,6 @@ defmodule PhilomenaWeb.StaffController do
         )
     ]
 
-    render(conn, "index.html", title: "Site Staff", categories: categories)
+    render(conn, "index.html", title: "Staff del sitio", categories: categories)
   end
 end

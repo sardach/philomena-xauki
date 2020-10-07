@@ -1,40 +1,33 @@
 = if @image.duplicate_id do
   .walloftext
     .block.block--fixed.block--warning
-      h1 This image has been merged into another image
+      h1 Esta imagen se ha fusionado con otra
       p
-        ' This image was merged into image
+        ' La imagen se fusiono con:
         => link "##{@image.duplicate_id}", to: Routes.image_path(@conn, :show, @image.duplicate_id)
-        ' because it was determined to be a duplicate of that image.
+        ' por que se determino que son demasiado similares.
 
 - else
   .walloftext
     .block.block--fixed.block--warning
-      h1 This image has been deleted
+      h1 Esta imagen ha sido eliminada
       p
-        ' Reason:
+        ' Razon:
         strong
-          = @image.deletion_reason || "Unknown (likely deleted in error). Please contact a moderator."
+          = @image.deletion_reason || "Desconocido. Por favor cantacta a un moderador."
 
       = if can?(@conn, :hide, @image) do
         p
-          strong> Spoilers!
-          ' Done by:
+          strong> 
+          ' Hecho por::
           strong = deleter(@image)
     p
-      ' If you originally uploaded the file previously located here, please don't re-upload it -
-      => link "contact us", to: "/pages/contact"
-      ' if you feel this was in error and we'll talk! We're only human, and mistakes happen.
-    p
-      ' Here's the
-      => link "tagging guidelines", to: "/pages/tags"
-      ' and
-      = link "rules of the site", to: "/pages/rules"
-      ' . Other useful links can be found at the bottom of the page.
+      ' Si tu subiste la foto, por favor no lo hagas de nuevo. Antes contactanos.
+      ' Si sientes que fue un error, podemos hablarlo.
 
 = if can?(@conn, :hide, @image) do
   = render PhilomenaWeb.ImageView, "show.html", assigns
 - else
   p
-    strong Tags:
+    strong Etiquetas:
   = render PhilomenaWeb.TagView, "_tag_list.html", tags: display_order(@image.tags), conn: @conn

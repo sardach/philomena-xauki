@@ -1,6 +1,6 @@
 .block--fixed
   i.fa.fa-fw.fa-calendar>
-  ' Account created
+  ' Cuenta creada
   = @user.created_at
 
   br

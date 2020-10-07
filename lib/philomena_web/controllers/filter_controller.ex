@@ -29,7 +29,7 @@ defmodule PhilomenaWeb.FilterController do
       |> Repo.all()
 
     render(conn, "index.html",
-      title: "Filters",
+      title: "Filtros",
       my_filters: my_filters,
       system_filters: system_filters
     )
@@ -51,7 +51,7 @@ defmodule PhilomenaWeb.FilterController do
       |> Repo.all()
 
     render(conn, "show.html",
-      title: "Showing Filter",
+      title: "Mostrando Filtro",
       filter: filter,
       spoilered_tags: spoilered_tags,
       hidden_tags: hidden_tags

@@ -1,14 +1,8 @@
 .block__content.js-imagelist-info.flex class=tags_row_class(@conn)
-  .flex__fixed.tag-info__image.thumb-tiny-container.spacing-right
-    = if @tag.image do
-      img src=tag_image(@tag) alt="spoiler image"
-    - else
-      | no spoiler image
-  
   .flex__grow
     = render PhilomenaWeb.TagView, "_tag.html", tag: @tag, conn: @conn
-    = link "Tag changes", to: Routes.tag_tag_change_path(@conn, :index, @tag), class: "detail-link"
     = if manages_tags?(@conn) do
+      = link "Tag changes", to: Routes.tag_tag_change_path(@conn, :index, @tag), class: "detail-link"
       = link "Edit details", to: Routes.tag_path(@conn, :edit, @tag), class: "detail-link"
       = link "Usage", to: Routes.tag_detail_path(@conn, :index, @tag), class: "detail-link"
     = if manages_dnp?(@conn) do

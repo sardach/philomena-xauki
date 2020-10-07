@@ -20,7 +20,7 @@ defmodule PhilomenaWeb.ImageController do
   import Ecto.Query
 
   plug PhilomenaWeb.LimitPlug,
-       [time: 10, error: "You may only upload images once every 10 seconds."]
+       [time: 10, error: "Solo puedes subir una imagen cada 10 segundos"]
        when action in [:create]
 
   plug :load_image when action in [:show]
@@ -43,7 +43,7 @@ defmodule PhilomenaWeb.ImageController do
     interactions = Interactions.user_interactions(images, conn.assigns.current_user)
 
     render(conn, "index.html",
-      title: "Images",
+      title: "Imagenes",
       layout_class: "layout--wide",
       images: images,
       interactions: interactions
@@ -108,7 +108,7 @@ defmodule PhilomenaWeb.ImageController do
       %Image{}
       |> Images.change_image()
 
-    render(conn, "new.html", title: "New Image", changeset: changeset)
+    render(conn, "new.html", title: "Nueva Imagen", changeset: changeset)
   end
 
   def create(conn, %{"image" => image_params}) do

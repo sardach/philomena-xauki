@@ -1,19 +1,19 @@
 div
-  ' Posted
+  ' Posteado
   => pretty_time(@comment.created_at)
 
   a.communication__interaction href=Routes.image_comment_report_path(@conn, :new, @comment.image, @comment)
     i.fa.fa-flag>
-    ' Report
+    ' Reportar
 
   = if not is_nil(@comment.edited_at) and can?(@conn, :show, @comment) do
     br
     a href=Routes.image_comment_history_path(@conn, :index, @comment.image, @comment)
-      ' Edited
+      ' Editado
       => pretty_time(@comment.edited_at)
 
       = if @comment.edit_reason not in [nil, ""] do
-        ' because:
+        ' por:
         => @comment.edit_reason
 
 div
@@ -23,19 +23,19 @@ div
 
   a.communication__interaction title="Link to comment" href=link_path
     i.fa.fa-link>
-    ' Link
+    ' Enlace
 
   a.communication__interaction.post-reply.post-reply-quote href=link_path data-reply-url=link_path data-author=safe_author data-post=quote_body
     i.fa.fa-quote-right>
-    ' Quote
+    ' Citar
 
   a.communication__interaction.post-reply href=link_path data-reply-url=link_path data-author=safe_author
     i.fa.fa-reply>
-    ' Reply
+    ' Responder
 
   = if can?(@conn, :edit, @comment) do
     span.owner-options
       strong
         a.communication__interaction href=Routes.image_comment_path(@conn, :edit, @comment.image, @comment)
           i.fas.fa-edit>
-          ' Edit
+          ' Editar

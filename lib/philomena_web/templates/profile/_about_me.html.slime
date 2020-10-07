@@ -5,7 +5,7 @@
 
     - current?(@user, @conn.assigns.current_user) ->
       em
-        ' Want to
-        => link "add some info about yourself?", to: Routes.profile_description_path(@conn, :edit, @user)
+        ' ¿Quieres
+        => link "añadir un poco de información acerca de ti?", to: Routes.profile_description_path(@conn, :edit, @user)
 
     - true ->

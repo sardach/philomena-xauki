@@ -1,19 +1,19 @@
 div
-  ' Posted
+  ' Posteado
   => pretty_time(@post.created_at)
 
   a.communication__interaction href=Routes.forum_topic_post_report_path(@conn, :new, @post.topic.forum, @post.topic, @post)
     i.fa.fa-flag>
-    ' Report
+    ' Reportar
 
   = if not is_nil(@post.edited_at) and can?(@conn, :show, @post) do
     br
     a href=Routes.forum_topic_post_history_path(@conn, :index, @post.topic.forum, @post.topic, @post)
-      ' Edited
+      ' Editado
       => pretty_time(@post.edited_at)
 
       = if @post.edit_reason not in [nil, ""] do
-        ' because:
+        ' por:
         => @post.edit_reason
 
 div
@@ -23,19 +23,19 @@ div
 
   a.communication__interaction title="Link to post" href=link_path
     i.fa.fa-link>
-    ' Link
+    ' Enlace
 
   a.communication__interaction.post-reply.post-reply-quote href=link_path data-reply-url=link_path data-author=safe_author data-post=quote_body
     i.fa.fa-quote-right>
-    ' Quote
+    ' Citar
 
   a.communication__interaction.post-reply href=link_path data-reply-url=link_path data-author=safe_author
     i.fa.fa-reply>
-    ' Reply
+    ' Responder
   
   = if can?(@conn, :edit, @post) do
     span.owner-options
       strong
         a.communication__interaction href=Routes.forum_topic_post_path(@conn, :edit, @post.topic.forum, @post.topic, @post)
           i.fas.fa-edit>
-          ' Edit
+          ' Editar

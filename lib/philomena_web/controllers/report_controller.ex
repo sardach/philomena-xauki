@@ -22,7 +22,7 @@ defmodule PhilomenaWeb.ReportController do
 
     reports = %{reports | entries: polymorphic}
 
-    render(conn, "index.html", title: "My Reports", reports: reports)
+    render(conn, "index.html", title: "Mis Reportes", reports: reports)
   end
 
   # Make sure that you load the resource in your controller:

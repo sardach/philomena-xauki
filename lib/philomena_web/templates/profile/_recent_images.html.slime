@@ -3,7 +3,7 @@
     .block__header
       span.block__header__title = @title
       = if assigns[:view_all_path] do
-        = link("View all", to: assigns[:view_all_path])
+        = link("Ver todo", to: assigns[:view_all_path])
 
     .block__content.js-resizable-media-container
       = for image <- @images do

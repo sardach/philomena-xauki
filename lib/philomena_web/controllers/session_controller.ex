@@ -23,12 +23,12 @@ defmodule PhilomenaWeb.SessionController do
         render(
           conn,
           "new.html",
-          error_message: "You must confirm your account before logging in."
+          error_message: "Debes confirmar tu cuenta antes de Iniciar Sesión."
         )
 
       not is_nil(user) ->
         conn
-        |> put_flash(:info, "Successfully logged in.")
+        |> put_flash(:info, "Inicio de Sesión satisfactorio.")
         |> UserAuth.log_in_user(user, user_params)
 
       true ->
@@ -36,14 +36,14 @@ defmodule PhilomenaWeb.SessionController do
           conn,
           "new.html",
           error_message:
-            "Invalid email or password. If you're seeing this more than usual, your account may be locked."
+            "Contraseña o email erroneos. También podría estar bloqueada tu cuenta"
         )
     end
   end
 
   def delete(conn, _params) do
     conn
-    |> put_flash(:info, "Logged out successfully.")
+    |> put_flash(:info, "Adios. ¡No tardes en volver!")
     |> UserAuth.log_out_user()
   end
 end

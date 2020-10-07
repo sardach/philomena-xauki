@@ -19,7 +19,7 @@ defmodule PhilomenaWeb.ForumController do
 
     topic_count = Repo.aggregate(Forum, :sum, :topic_count)
 
-    render(conn, "index.html", title: "Forums", forums: forums, topic_count: topic_count)
+    render(conn, "index.html", title: "Foros", forums: forums, topic_count: topic_count)
   end
 
   def show(conn, %{"id" => _id}) do

@@ -2,7 +2,7 @@
   .block
     .block__header
       span.block__header__title Recent Forum Posts
-      = link "View all", to: Routes.post_path(@conn, :index, pq: "user_id:#{@user.id}")
+      = link "Ver todo", to: Routes.post_path(@conn, :index, pq: "user_id:#{@user.id}")
 
     .block__content
       .block
@@ -10,5 +10,5 @@
           .block__content.alternating-color
             ' Post
             => link pretty_time(post.created_at), to: Routes.forum_topic_path(@conn, :show, post.topic.forum, post.topic, post_id: post) <> "#post_#{post.id}"
-            ' in topic
+            ' en el tema
             => link post.topic.title, to: Routes.forum_topic_path(@conn, :show, post.topic.forum, post.topic)

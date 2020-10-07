@@ -10,7 +10,7 @@ defmodule PhilomenaWeb.ConversationController do
   plug PhilomenaWeb.FilterBannedUsersPlug when action in [:new, :create]
 
   plug PhilomenaWeb.LimitPlug,
-       [time: 60, error: "You may only create a conversation once every minute."]
+       [time: 60, error: "Solo puedes iniciar una conversación por minuto"]
        when action in [:create]
 
   plug :load_and_authorize_resource,
@@ -55,7 +55,7 @@ defmodule PhilomenaWeb.ConversationController do
       |> select([c, cnt], {c, cnt.count})
       |> Repo.paginate(conn.assigns.scrivener)
 
-    render(conn, "index.html", title: "Conversations", conversations: conversations)
+    render(conn, "index.html", title: "Conversaciones", conversations: conversations)
   end
 
   def show(conn, _params) do
@@ -86,7 +86,7 @@ defmodule PhilomenaWeb.ConversationController do
     conn = NotificationCountPlug.call(conn)
 
     render(conn, "show.html",
-      title: "Showing Conversation",
+      title: "Mostrando Conversación",
       conversation: conversation,
       messages: messages,
       changeset: changeset
@@ -98,7 +98,7 @@ defmodule PhilomenaWeb.ConversationController do
       %Conversation{recipient: params["recipient"], messages: [%Message{}]}
       |> Conversations.change_conversation()
 
-    render(conn, "new.html", title: "New Conversation", changeset: changeset)
+    render(conn, "new.html", title: "Nueva Conversación", changeset: changeset)
   end
 
   def create(conn, %{"conversation" => conversation_params}) do
@@ -107,7 +107,7 @@ defmodule PhilomenaWeb.ConversationController do
     case Conversations.create_conversation(user, conversation_params) do
       {:ok, conversation} ->
         conn
-        |> put_flash(:info, "Conversation successfully created.")
+        |> put_flash(:info, "Conversación iniciada sin problema.")
         |> redirect(to: Routes.conversation_path(conn, :show, conversation))
 
       {:error, changeset} ->

@@ -1,4 +1,4 @@
-h1 Updating Profile Description
+h1 Actualizando descripción del perfil
 
 = form_for @changeset, Routes.profile_description_path(@conn, :update, @user), [method: "put"], fn f ->
   = if @changeset.action do
@@ -10,29 +10,29 @@ h1 Updating Profile Description
       span.block__header__title Personal Title
     .block__content
       .field
-        = text_input f, :personal_title, class: "input input--short", placeholder: "Title"
+        = text_input f, :personal_title, class: "input input--short", placeholder: "Titulo"
         = error_tag f, :personal_title
 
   .block
     .block__header.block__header--js-tabbed
       a.selected href="#" data-click-tab="write"
         i.fas.fa-edit>
-        ' About Me
+        ' Acerca de mi 
 
       a href="#" data-click-tab="preview"
         i.fa.fa-eye>
-        ' Preview
+        ' Vista Previa
 
     .block__tab.communication-edit__tab.selected data-tab="write"
       = render PhilomenaWeb.TextileView, "_help.html", conn: @conn
       = render PhilomenaWeb.TextileView, "_toolbar.html", conn: @conn
 
       .field
-        = textarea f, :description, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Description (up to 10000 characters)"
+        = textarea f, :description, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Cuenta en breve que hay contigo. Este es un lugar apropiado para dar enlaces a redes sociales y eso también"
         = error_tag f, :description
 
     .block__tab.communication-edit__tab.hidden data-tab="preview"
-      ' [Loading preview...]
+      ' [Cargando Vista Previa...]
 
     .block__content.communication-edit__actions
-      => submit "Update", class: "button"
+      => submit "Actualizar", class: "button"

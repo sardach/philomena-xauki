@@ -1,7 +1,7 @@
 h1
-  ' Viewing last 25 versions of post by
+  ' Ver ultimas versiones del post
   = render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: @post, conn: @conn
-  ' in topic
+  ' en el tema
   a href=(Routes.forum_topic_path(@conn, :show, @post.topic.forum, @post.topic, post_id: @post.id) <> "#post_#{@post.id}")
     = @post.topic.title
 
@@ -39,7 +39,7 @@ h1
             ' No reason given
 
         .flex__right
-          ' Edited
+          ' Editado
           => pretty_time(version.created_at)
-          ' by
+          ' por
           => render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: version, conn: @conn
