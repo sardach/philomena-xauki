@@ -1,5 +1,5 @@
 # Philomena (Xauki fork)
-![Philomena](assets/static/hires.png)
+<img src="assets/static/xauki-rect.png" width="200">
 
 Hello, this is the Fork of Philomena running in https://xauki.com
 
