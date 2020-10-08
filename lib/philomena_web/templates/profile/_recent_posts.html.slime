@@ -1,7 +1,7 @@
 = if Enum.any?(@posts) do
   .block
     .block__header
-      span.block__header__title Recent Forum Posts
+      span.block__header__title Posts recientes en el foro
       = link "Ver todo", to: Routes.post_path(@conn, :index, pq: "user_id:#{@user.id}")
 
     .block__content

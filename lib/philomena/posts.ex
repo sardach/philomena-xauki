@@ -112,7 +112,7 @@ defmodule Philomena.Posts do
           actor_type: "Topic",
           actor_child_id: post.id,
           actor_child_type: "Post",
-          action: "posted a new reply in"
+          action: "posteo una respuesta en"
         }
       )
     end)

@@ -12,8 +12,8 @@
     => pretty_time @notification.updated_at
 
 .flex.flex--centered.flex--no-wrap
-  a.button.button--separate-right title="Delete" href=Routes.forum_topic_read_path(@conn, :create, topic.forum, topic) data-method="post" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
+  a.button.button--separate-right title="Borrar" href=Routes.forum_topic_read_path(@conn, :create, topic.forum, topic) data-method="post" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
     i.fa.fa-trash
 
-  a.button title="Unsubscribe" href=Routes.forum_topic_subscription_path(@conn, :delete, topic.forum, topic) data-method="delete" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
+  a.button title="Dejar de recibir Notificaciones" href=Routes.forum_topic_subscription_path(@conn, :delete, topic.forum, topic) data-method="delete" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
     i.fa.fa-bell-slash

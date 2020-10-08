@@ -44,9 +44,6 @@ header.header
           nav.dropdown__content.dropdown__content-right.hide-mobile.js-burger-links
             a.header__link href=Routes.profile_path(@conn, :show, @current_user)
               = @current_user.name
-            a.header__link href="/search?q=my:watched"
-              i.fa.fa-fw.fa-eye>
-              | Siguiendo
             a.header__link href="/search?q=my:faves"
               i.fa.fa-fw.fa-star>
               | Favoritos
@@ -55,7 +52,7 @@ header.header
               | Votados
             a.header__link href=Routes.gallery_path(@conn, :index, gallery: [creator: @current_user.name])
               i.fa.fa-fw.fa-image>
-              | Galerias
+              | Colecciones
             a.header__link href="/search?q=my:uploads"
               i.fa.fa-fw.fa-upload>
               | Subidas

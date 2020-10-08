@@ -177,6 +177,7 @@ defmodule PhilomenaWeb.ProfileController do
       recent_artwork: recent_artwork,
       recent_uploads: recent_uploads,
       recent_faves: recent_faves,
+      fotos_rel: fotos_rel,
       recent_comments: recent_comments,
       recent_posts: recent_posts,
       recent_galleries: recent_galleries,

@@ -79,9 +79,20 @@ config :logger, :console, format: "[$level] $message\n"
 config :logger, compile_time_purge_matching: [[application: :remote_ip], [application: :mint]]
 
 # Set up mailer
-config :philomena, Philomena.Mailer, adapter: Bamboo.LocalAdapter
-
-config :philomena, :mailer_address, "noreply@philomena.lc"
+#config :philomena, Philomena.Mailer, adapter: Bamboo.LocalAdapter
+config :philomena, Philomena.Mailer,
+#  adapter: Bamboo.SendGridAdapter,
+ # api_key: "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", # or {:system, "SENDGRID_API_KEY"},
+  # hackney_opts: [
+   #  recv_timeout: :timer.minutes(1)
+   #]
+  adapter: Bamboo.MailgunAdapter,
+  api_key: "9cd64ccdaf5d3632c2c77a63abfb83d8-aff2d1b9-d63ec34e",
+  domain: "mail.xauki.com",
+  hackney_opts: [
+    recv_timeout: :timer.minutes(1)
+  ]
+config :philomena, :mailer_address, "correo@mail.xauki.com"
 
 # Use this to debug slime templates
 # config :slime, :keep_lines, true
@@ -92,3 +103,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :logger, level: :info

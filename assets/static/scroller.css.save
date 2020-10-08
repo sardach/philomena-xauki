@@ -1,0 +1,43 @@
+    @font-face {
+        font-family: pixel;
+        src: url(lcd.ttf);
+    }
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+        height: 30px;
+        color: #ffd300;
+        font-size: 20px;
+        vertical-align: middle;
+        background-color: #000;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(248, 248, 248, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(248, 248, 248, 0.08) 1px, transparent 1px);
+        background-size: 100px 0px, 0px 100px, 5px 5px, 5px 5px;
+        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+        font-family: 'pixel';
+}
+</style>    @font-face {
+        font-family: pixel;
+        src: url(lcd.ttf);
+    }
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+        height: 30px;
+        color: #ffd300;
+        font-size: 20px;
+        vertical-align: middle;
+        background-color: #000;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(248, 248, 248, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(248, 248, 248, 0.08) 1px, transparent 1px);
+        background-size: 100px 0px, 0px 100px, 5px 5px, 5px 5px;
+        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+        sdadasdafont-family: 'pixel';
+}
+</style>

@@ -10,13 +10,13 @@ defmodule PhilomenaWeb.NotFoundPlug do
     case conn.assigns.ajax? do
       true ->
         conn
-        |> Conn.resp(:not_found, "Couldn't find what you were looking for!")
+        |> Conn.resp(:not_found, "404 - x.x | No pudimos encontrar lo que buscas")
         |> Conn.halt()
 
       false ->
         conn
         |> Controller.fetch_flash()
-        |> Controller.put_flash(:error, "Couldn't find what you were looking for!")
+        |> Controller.put_flash(:error, "404 - x.x | No pudimos encontrar lo que buscas")
         |> Controller.redirect(to: "/")
         |> Conn.halt()
     end

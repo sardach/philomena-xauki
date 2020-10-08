@@ -1,34 +1,28 @@
 nav#burger
   a href="/"
     i.fa-fw.favicon-home<>
-    ' Home
+    ' Inicio
   a href="/images/new"
-    i.fa.fa-fw.fa-upload<>
-    ' Upload
+    i.fa.fa-fw.fa-cloud-upload-alt<>
+    ' Publicar
   a href="/forums"
     i.fas.fa-fw.fa-pen-square<>
-    ' Forums
+    ' Foro
   a href="/tags"
     i.fa.fa-fw.fa-tag<>
-    ' Tags
-  a href="/search?q=first_seen_at.gt:3 days ago&amp;sf=wilson_score&amp;sd=desc"
+    ' Etiquetas
+  a href="https://xauki.com/search?q=*&sf=score&sd=desc"
     i.fas.fa-fw.fa-poll<>
-    ' Rankings
-  a href="/filters"
-    i.fa.fa-fw.fa-filter<>
-    ' Filters
+    ' TOP todos los tiempos
+  a href="https://xauki.com/search?q=first_seen_at.gt%3A365+days+ago&sf=score&sd=desc"
+    i.fas.fa-fw.fa-poll<>
+    ' TOP último año
+  a href="https://xauki.com/search?q=first_seen_at.gt%3A31+days+ago&sf=score&sd=desc"
+    i.fas.fa-fw.fa-poll<>
+    ' TOP último mes
   a href="/galleries"
     i.fa.fa-fw.fa-image<>
-    ' Galleries
+    ' Colecciones
   a href="/comments"
     i.fa.fa-fw.fa-comments<>
-    ' Comments
-  a href="/commissions"
-    i.fa.fa-fw.fa-address-card<>
-    ' Commissions
-  a href="/channels"
-    i.fa.fa-fw.fa-podcast<>
-    ' Channels
-  a href="/pages/donations"
-    i.fa.fa-fw.fa-heart<>
-    ' Donate
+    ' Comentarios

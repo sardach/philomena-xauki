@@ -52,7 +52,7 @@ defmodule Philomena.UserLinks.UserLink do
     |> put_assoc(:tag, tag)
     |> put_assoc(:user, user)
     |> validate_required([:user, :uri, :public])
-    |> validate_required([:tag], message: "must exist")
+    |> validate_required([:tag], message: "- debe haber por lo menos una obra en Xauki con esa etiqueta")
     |> validate_format(:uri, ~r|\Ahttps?://|)
     |> parse_uri()
     |> put_verification_code()
@@ -88,7 +88,7 @@ defmodule Philomena.UserLinks.UserLink do
 
   defp put_verification_code(changeset) do
     code = :crypto.strong_rand_bytes(5) |> Base.encode16()
-    change(changeset, verification_code: "DERPI-LINKVALIDATION-#{code}")
+    change(changeset, verification_code: "XAUKI-VERIFICACIÓN-#{code}")
   end
 
   defp put_next_check_at(changeset) do

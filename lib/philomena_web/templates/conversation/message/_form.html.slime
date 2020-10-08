@@ -3,22 +3,22 @@
     .block__header.block__header--js-tabbed
       a.selected href="#" data-click-tab="write"
         i.fa.fa-pencil-alt>
-        | Reply
+        | Responder
 
       a href="#" data-click-tab="preview"
         i.fa.fa-eye>
-        | Preview
+        | Vista previa
 
     .block__tab.communication-edit__tab.selected data-tab="write"
       = render PhilomenaWeb.TextileView, "_help.html", conn: @conn
       = render PhilomenaWeb.TextileView, "_toolbar.html", conn: @conn
 
       .field
-        = textarea f, :body, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Your message", required: true
+        = textarea f, :body, class: "input input--wide input--text js-preview-input js-toolbar-input", placeholder: "Tu mensaje", required: true
         = error_tag f, :body
 
     .block__tab.communication-edit__tab.hidden data-tab="preview"
       | [Loading preview...]
 
     .block__content.communication-edit__actions
-      = submit "Send", class: "button", autocomplete: "off", data: [disable_with: "Sending..."]
+      = submit "Enviar", class: "button", autocomplete: "off", data: [disable_with: "Enviando..."]

@@ -27,8 +27,8 @@ config :philomena,
   channel_image_file_root: "priv/static/system/images",
   channel_banner_file_root: "priv/static/system/images",
   tag_file_root: "priv/static/system/images",
-  hcaptcha_site_key: "10000000-ffff-ffff-ffff-000000000001",
-  hcaptcha_secret_key: "0x0000000000000000000000000000000000000000",
+  hcaptcha_site_key: "004d117a-0d71-41a4-a6a4-cc9d786a14fe",
+  hcaptcha_secret_key: "0x6B5e21662111afE8B76BEb2d55dc941c93A7E9D8",
   cdn_host: "",
   proxy_host: nil,
   app_dir: File.cwd!()
@@ -52,7 +52,7 @@ config :canary,
 
 # Configures the endpoint
 config :philomena, PhilomenaWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "xauki.com"],
   secret_key_base: "xZYTon09JNRrj8snd7KL31wya4x71jmo5aaSSRmw1dGjWLRmEwWMTccwxgsGFGjM",
   render_errors: [view: PhilomenaWeb.ErrorView, accepts: ~w(html json)],
   pubsub_server: Philomena.PubSub

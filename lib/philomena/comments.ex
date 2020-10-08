@@ -83,7 +83,7 @@ defmodule Philomena.Comments do
           actor_type: "Image",
           actor_child_id: comment.id,
           actor_child_type: "Comment",
-          action: "commented on"
+          action: "comento en"
         }
       )
     end)

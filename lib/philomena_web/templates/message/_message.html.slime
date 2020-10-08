@@ -16,5 +16,5 @@ article.block.communication
   .block__content.communication__options
     .flex.flex--wrap.flex--spaced-out
       div
-        ' Posted
+        ' Enviado
         = pretty_time(@message.created_at)

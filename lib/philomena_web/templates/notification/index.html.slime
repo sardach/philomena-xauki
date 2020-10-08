@@ -1,6 +1,6 @@
 - route = fn p -> Routes.notification_path(@conn, :index, p) end
 
-h1 Notification Area
+h1 Area de Notificaciones
 .walloftext
   .block__header
     = render PhilomenaWeb.PaginationView, "_pagination.html", page: @notifications, route: route, conn: @conn
@@ -12,6 +12,5 @@ h1 Notification Area
 
     - true ->
       p
-        ' To get notifications on new comments and forum posts, click the
-        ' 'Subscribe' button in the bar at the top of an image or forum topic.
-        ' You'll get notifications here for any new posts or comments.
+        ' Para tener notificaciones de nuevos comentarios en fotos y temas del foro
+        ' toca el botón "Recibir Notificaciones" en la parte de arriba de la foto o tema.

@@ -3,7 +3,7 @@
     = if @notification.actor_child do
       => render PhilomenaWeb.UserAttributionView, "_anon_user.html", object: @notification.actor_child, conn: @conn
     - else
-      ' Someone
+      ' Alguien
     => @notification.action
 
     strong>
@@ -12,8 +12,8 @@
     => pretty_time @notification.updated_at
 
 .flex.flex--centered.flex--no-wrap
-  a.button.button--separate-right title="Delete" href=Routes.image_read_path(@conn, :create, @notification.actor) data-method="post" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
+  a.button.button--separate-right title="Borrar" href=Routes.image_read_path(@conn, :create, @notification.actor) data-method="post" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
     i.fa.fa-trash
 
-  a.button title="Unsubscribe" href=Routes.image_subscription_path(@conn, :delete, @notification.actor) data-method="delete" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
+  a.button title="Dejar de recibir notificaciones" href=Routes.image_subscription_path(@conn, :delete, @notification.actor) data-method="delete" data-remote="true" data-fetchcomplete-hide="#notification-#{@notification.id}"
     i.fa.fa-bell-slash

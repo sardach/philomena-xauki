@@ -6,19 +6,19 @@ elixir:
 h1 = @conversation.title
 .block
   .block__header
-    => link "Message Center", to: Routes.conversation_path(@conn, :index)
+    => link "Centro de Mensajes", to: Routes.conversation_path(@conn, :index)
     ' &raquo;
     => link @conversation.title, to: Routes.conversation_path(@conn, :show, @conversation)
-    ' Conversation with
+    ' Conversación con
     => render PhilomenaWeb.UserAttributionView, "_user.html", object: %{user: other}, conn: @conn
   .block__header--sub.block__header--light
     span.block__header__title>
       => @messages.total_entries
       = pluralize("message", "messages", @messages.total_entries)
     = pagination
-    = link "Remove conversation", to: Routes.conversation_hide_path(@conn, :create, @conversation), data: [method: "post", confirm: "Are you really, really sure?"]
-    = link "Report conversation", to: Routes.conversation_report_path(@conn, :new, @conversation)
-    = link "Mark as unread", to: Routes.conversation_read_path(@conn, :delete, @conversation), data: [method: "delete"]
+    = link "Borrar conversación", to: Routes.conversation_hide_path(@conn, :create, @conversation), data: [method: "post", confirm: "Are you really, really sure?"]
+    = link "Reportar", to: Routes.conversation_report_path(@conn, :new, @conversation)
+    = link "Marcar como no leído", to: Routes.conversation_read_path(@conn, :delete, @conversation), data: [method: "delete"]
 
 = for {message, body} <- @messages do
   = render PhilomenaWeb.MessageView, "_message.html", message: message, body: body, conn: @conn
@@ -40,5 +40,5 @@ h1 = @conversation.title
       p You've managed to send over 1,000 messages in this conversation!
       p We'd like to ask you to make a new conversation. Don't worry, this one won't go anywhere if you need to refer back to it.
       p
-        => link "Click here", to: Routes.conversation_path(@conn, :new, receipient: other.name)
-        ' to make a new conversation with this user.
+        => link "Click aquí", to: Routes.conversation_path(@conn, :new, receipient: other.name)
+        ' para hacer una nueva conversación con este usuario

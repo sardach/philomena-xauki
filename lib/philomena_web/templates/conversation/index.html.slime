@@ -2,12 +2,12 @@ elixir:
   route = fn p -> Routes.conversation_path(@conn, :index, p) end
   pagination = render PhilomenaWeb.PaginationView, "_pagination.html", page: @conversations, route: route, conn: @conn
 
-h1 My Conversations
+h1 Mis Conversaciones
 .block
   .block__header
     a href=Routes.conversation_path(@conn, :new)
       i.fa.fa-paper-plane>
-      ' Create New Conversation
+      ' Crear nueva conversación
 
     = pagination
 
@@ -15,9 +15,9 @@ h1 My Conversations
     table.table.table--communication-list
       thead
         tr
-          th.table--communication-list__name Conversation
-          th.table--communication-list__stats With
-          th.table--communication-list__options Options
+          th.table--communication-list__name Conversación
+          th.table--communication-list__stats Con
+          th.table--communication-list__options Opciones
       tbody
         = for {c, count} <- @conversations do
           tr class=conversation_class(@conn.assigns.current_user, c)
@@ -26,7 +26,7 @@ h1 My Conversations
 
               .small-text.hide-mobile
                 => count
-                = pluralize("message", "messages", count)
+                = pluralize("mensaje", "mensajes", count)
                 ' ; started
                 = pretty_time(c.created_at)
                 ' , last message
@@ -35,9 +35,9 @@ h1 My Conversations
             td.table--communication-list__stats
               = render PhilomenaWeb.UserAttributionView, "_user.html", object: %{user: other_party(@current_user, c)}, conn: @conn
             td.table--communication-list__options
-              => link "Last message", to: last_message_path(@conn, c, count)
+              => link "Último mensaje", to: last_message_path(@conn, c, count)
               ' &bull;
-              => link "Hide", to: Routes.conversation_hide_path(@conn, :create, c), data: [method: "post"], data: [confirm: "Are you really, really sure?"]
+              => link "Esconder", to: Routes.conversation_hide_path(@conn, :create, c), data: [method: "post"], data: [confirm: "¿Estas realmente seguro?"]
 
   .block__header.block__header--light
     = pagination

@@ -1,9 +1,7 @@
-h1 User Links
+h1 Etiqueta de Artista
 p
   a.button href=Routes.profile_user_link_path(@conn, :new, @user)
-    ' Create a link
-p
-  ' User links associate your account on Derpibooru with tags about content you create and with accounts on sites elsewhere. This allows users to easily identify artists and admins to act more rapidly on takedown requests.
+    ' Crear enlace y etiqueta de Artista
 
 table.table
   thead

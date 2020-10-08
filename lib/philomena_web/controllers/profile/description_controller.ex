@@ -29,7 +29,7 @@ defmodule PhilomenaWeb.Profile.DescriptionController do
     case Users.update_description(user, user_params) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "Description successfully updated.")
+        |> put_flash(:info, "Actualizado sin problema.")
         |> redirect(to: Routes.profile_path(conn, :show, user))
 
       {:error, changeset} ->

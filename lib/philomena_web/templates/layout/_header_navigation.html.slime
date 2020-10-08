@@ -3,22 +3,23 @@
     i.fa.fa-random
     span
       |  Foto Aleatoria
-  a.header__link href="/tags"
-    | Etiquetas
-  a.header__link href="/galleries"
-    | Colecciones
   .dropdown.header__dropdown
     a.header__link href="#"
-      | Fotos TOP
+      i.fas.fa-chart-line
+      |  Fotos TOP
       span data-click-preventdefault="true"
         i.fa.fa-caret-down<
     .dropdown__content
       a.header__link href="https://xauki.com/search?q=*&sf=score&sd=desc"
         | Todos los tiempos
       a.header__link href="https://xauki.com/search?q=first_seen_at.gt%3A365+days+ago&sf=score&sd=desc"
-        | Ultimo año
+        | Último año
       a.header__link href="https://xauki.com/search?q=first_seen_at.gt%3A31+days+ago&sf=score&sd=desc"
-        | Ultimo mes
+        | Último mes
+  a.header__link href="/tags"
+    | Etiquetas
+  a.header__link href="/galleries"
+    | Colecciones
   .dropdown.header__dropdown
     a.header__link href="/forums"
       | Comunidad

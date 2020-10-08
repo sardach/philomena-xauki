@@ -1,50 +1,43 @@
-script src="https://xauki.com/jquery.js"
-script src="https://xauki.com/niveles.js"
-
 .profile-top
   .profile-top__avatar
     - avatar = render PhilomenaWeb.UserAttributionView, "_user_avatar.html", object: %{user: @user}, class: "avatar--125px"
     = if current?(@user, @conn.assigns.current_user) do
-      = link avatar, to: Routes.avatar_path(@conn, :edit, profile: true), title: "Cambiar foto"
+      = link avatar, to: Routes.avatar_path(@conn, :edit, profile: true), title: "Change avatar"
     - else
       = avatar
   .profile-top__name-and-links
     div
       h1.profile-top__name-header
         = @user.name
-      #barraprog
-        #prog
-        span#progtxt
-         span#nivel Nivel
-         span#puntos 0/0
-
+        | 's profile
       = render PhilomenaWeb.UserAttributionView, "_user_title.html", object: %{user: @user}, large: true
       br
 
       = if can?(@conn, :edit_description, @user) do
-        = link "Cambiar título personal", to: Routes.profile_description_path(@conn, :edit, @user)
+        = link "Edit Personal Title", to: Routes.profile_description_path(@conn, :edit, @user)
         br
 
       span
-        ' Miembro desde
+        ' Member since
         = pretty_time(@user.created_at)
 
     .profile-top__options
       ul.profile-top__options__column
-        li = link("Enviar mensaje", to: Routes.conversation_path(@conn, :new, recipient: @user.name))
-        li = link("Nuestras conversaciones", to: Routes.conversation_path(@conn, :index, with: @user.id))
-        li = link("Reportar usuario", to: Routes.profile_report_path(@conn, :new, @user))
+        li = link("Send message", to: Routes.conversation_path(@conn, :new, recipient: @user.name))
+        li = link("Our conversations", to: Routes.conversation_path(@conn, :index, with: @user.id))
+        li = link("Report this user", to: Routes.profile_report_path(@conn, :new, @user))
 
       ul.profile-top__options__column
-        li = link("Subidas", to: Routes.search_path(@conn, :index, q: "uploader_id:#{@user.id}"))
-        li = link("Comentarios", to: Routes.comment_path(@conn, :index, cq: "user_id:#{@user.id}"))
+        li = link("Uploads", to: Routes.search_path(@conn, :index, q: "uploader_id:#{@user.id}"))
+        li = link("Comments", to: Routes.comment_path(@conn, :index, cq: "user_id:#{@user.id}"))
         li = link("Posts", to: Routes.post_path(@conn, :index, pq: "user_id:#{@user.id}"))
         = if current?(@user, @conn.assigns.current_user) do
-          li = link "Mis reportes", to: Routes.report_path(@conn, :index)
+          li = link "My reports", to: Routes.report_path(@conn, :index)
 
       ul.profile-top__options__column
-        li = link("Favoritos", to: Routes.search_path(@conn, :index, q: "faved_by_id:#{@user.id}"))
-        li = link("Etiquetas cambiadas", to: Routes.profile_tag_change_path(@conn, :index, @user))
+        li = link("Favorites", to: Routes.search_path(@conn, :index, q: "faved_by_id:#{@user.id}"))
+        li = link("Tag changes", to: Routes.profile_tag_change_path(@conn, :index, @user))
+        li = link("Source changes", to: Routes.profile_source_change_path(@conn, :index, @user))
 
 = if can_index_user?(@conn) do
   .js-staff-action
@@ -59,7 +52,7 @@ script src="https://xauki.com/niveles.js"
 = if (current?(@user, @conn.assigns.current_user) or can?(@conn, :index, Philomena.Bans.User)) and Enum.any?(@bans) do
   .block
     .block__header--single-item
-      ' Historial de bans
+      ' Ban History
     .block__content
       = render PhilomenaWeb.BanView, "_bans.html", bans: @bans, conn: @conn
 
@@ -67,19 +60,15 @@ script src="https://xauki.com/niveles.js"
   .column-layout__left
     .block
       .block__header
-        = if can?(@conn, :edit_description, @user) do
-          a.block__header--single-item href=Routes.profile_description_path(@conn, :edit, @user) Acerca de mi
-        - else
-          span.block__header__title Acerca de mi
-
-      = render PhilomenaWeb.ProfileView, "_about_me.html", user: @user, about_me: @about_me, conn: @conn
+        span.block__header__title Commissions
+      = render PhilomenaWeb.ProfileView, "_commission.html", user: @user, commission_information: @commission_information, conn: @conn
 
     .block
       = if current?(@user, @conn.assigns.current_user) or manages_links?(@conn, @user) do
-        a.block__header--single-item href=Routes.profile_user_link_path(@conn, :new, @user) Artista
+        a.block__header--single-item href=Routes.profile_user_link_path(@conn, :new, @user) User Links
       - else
         .block__header
-          span.block__header__title Artista
+          span.block__header__title User Links
       = for link <- @user.verified_links, should_see_link?(@conn, @user, link) do
         - watchers = if link.tag, do: @watcher_counts[link.tag.id] || 0, else: 0
 
@@ -91,30 +80,30 @@ script src="https://xauki.com/niveles.js"
 
             = if current?(@user, @conn.assigns.current_user) or manages_links?(@conn, @user) do
               br
-              ' Seguido por
+              ' Watched by
               => watchers
-              = pluralize("usuario", "usuarios", watchers)
+              = pluralize("user", "users", watchers)
 
             = if manages_links?(@conn, @user) do
               br
               => if link.public do
-                ' Publico
+                ' Public
               - else
-                ' Escondido
+                ' Hidden
               ' &bull;
               a href=Routes.profile_user_link_path(@conn, :edit, @user, link)
-                ' Editar
+                ' Edit
               ' &bull;
               a href=Routes.admin_user_link_reject_path(@conn, :create, link) data-method="post"
-                ' Rechazar
+                ' Reject
             - else
               => unless link.public do
                 br
-                ' Escondido
+                ' Hidden
 
     .block
       = if manages_awards?(@conn) and not hide_staff_tools?(@conn) do
-        a.block__header--single-item href=Routes.profile_award_path(@conn, :new, @user) Medallas
+        a.block__header--single-item href=Routes.profile_award_path(@conn, :new, @user) Badges
       - else
         .block__header
           span.block__header__title Badges
@@ -132,11 +121,19 @@ script src="https://xauki.com/niveles.js"
           = if manages_awards?(@conn) do
             .flex__grow.center
               a href=Routes.profile_award_path(@conn, :delete, @user, award) data-method="delete" data-confirm="Are you really, really sure?"
-                ' Borrar
+                ' Remove
               br
               a href=Routes.profile_award_path(@conn, :edit, @user, award)
-                ' Editar
+                ' Edit
 
+    .block
+      .block__header
+        = if can?(@conn, :edit_description, @user) do
+          a.block__header--single-item href=Routes.profile_description_path(@conn, :edit, @user) About Me
+        - else
+          span.block__header__title About Me
+
+      = render PhilomenaWeb.ProfileView, "_about_me.html", user: @user, about_me: @about_me, conn: @conn
 
     = if can_read_mod_notes?(@conn) and not hide_staff_tools?(@conn) do
       .block
@@ -159,11 +156,12 @@ script src="https://xauki.com/niveles.js"
 
   .column-layout__main
     = render PhilomenaWeb.ProfileView, "_statistics.html", user: @user, statistics: @statistics, conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Obras de su autoría", images: @recent_artwork, view_all_path: Routes.search_path(@conn, :index, q: tag_disjunction(@tags)), conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Fotos subidas", images: @recent_uploads, view_all_path: Routes.search_path(@conn, :index, q: "uploader_id:#{@user.id}"), conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Favoritos recientes", images: @recent_faves, view_all_path: Routes.search_path(@conn, :index, q: "faved_by_id:#{@user.id}"), conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_galleries.html", title: "Colecciones recientes", galleries: @recent_galleries, user: @user, conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_comments.html", title: "Comentarios recientes", comments: @recent_comments, user: @user, conn: @conn
-    = render PhilomenaWeb.ProfileView, "_recent_posts.html", title: "Posts recientes",posts: @recent_posts, user: @user, conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Recent Artwork", images: @recent_artwork, view_all_path: Routes.search_path(@conn, :index, q: tag_disjunction(@tags)), conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Recent Uploads", images: @recent_uploads, view_all_path: Routes.search_path(@conn, :index, q: "uploader_id:#{@user.id}"), conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Recent Favorites", images: @recent_faves, view_all_path: Routes.search_path(@conn, :index, q: "faved_by_id:#{@user.id}"), conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_images.html", title: "Recent Favorites", images: @fotos_rel, view_all_path: Routes.search_path(@conn, :index, q: "stickers"), conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_galleries.html", galleries: @recent_galleries, user: @user, conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_comments.html", comments: @recent_comments, user: @user, conn: @conn
+    = render PhilomenaWeb.ProfileView, "_recent_posts.html", posts: @recent_posts, user: @user, conn: @conn
 
 

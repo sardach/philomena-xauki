@@ -1,2 +1,2 @@
-h1 Create Link
+h1 Crear etiqueta de artista
 = render PhilomenaWeb.Profile.UserLinkView, "_form.html", changeset: @changeset, action: Routes.profile_user_link_path(@conn, :create, @user), conn: @conn
