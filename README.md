@@ -1,7 +1,7 @@
-# Philomena (Xauki fork)
+# Philomena-Xauki
 <img src="assets/static/xauki-rect.png" width="200">
 
-Hello, this is the Fork of Philomena running in https://xauki.com
+Hello, this is the Fork of Philomena running at https://xauki.com
 
 I'm only posting this because my soul demnand me to comply with the AGPL license.
 
